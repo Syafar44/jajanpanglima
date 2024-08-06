@@ -12,28 +12,113 @@ import {
 } from "@material-tailwind/react";
 import Footer from "../../components/Footer";
 import Wa from "@/app/components/Wa";
+import Link from "next/link";
 
 const products = [
   {
-    id: 4,
-    nama: "Gembung coklat",
+    id: 11,
+    nama: "Kari Meleleh",
     harga: 3000,
     gambar:
-      "https://raw.githubusercontent.com/Syafar44/assets/main/assets/image/tes-5.jpg",
+      "../produk/gembung/ayam kari meleleh.jpg",
   },
   {
-    id: 5,
-    nama: "Gembung keju",
+    id: 12,
+    nama: "Gembung Chococrunchy",
     harga: 3000,
     gambar:
-      "https://raw.githubusercontent.com/Syafar44/assets/main/assets/image/tes-5.jpg",
+      "../produk/gembung/Chococrunchy.jpg",
   },
   {
-    id: 6,
-    nama: "Gembung tiramisu",
+    id: 13,
+    nama: "Gembung Choco Keju",
     harga: 3000,
     gambar:
-      "https://raw.githubusercontent.com/Syafar44/assets/main/assets/image/tes-5.jpg",
+      "../produk/gembung/coklat atau choco keju.jpg",
+  },
+  {
+    id: 14,
+    nama: "Gembung Coklat",
+    harga: 3000,
+    gambar:
+      "../produk/gembung/Coklat.JPG",
+  },
+  {
+    id: 15,
+    nama: "Gembung Durian",
+    harga: 3000,
+    gambar:
+      "../produk/gembung/durian.jpg",
+  },
+  {
+    id: 16,
+    nama: "Gembung Durian Keju",
+    harga: 3000,
+    gambar:
+      "../produk/gembung/Gembung Durian Keju.jpg",
+  },
+  {
+    id: 17,
+    nama: "Gembung Stawbery Keju",
+    harga: 3000,
+    gambar:
+      "../produk/gembung/Gembung Sarikaya keju.jpg",
+  },
+  {
+    id: 18,
+    nama: "Gembung Stawbery",
+    harga: 3000,
+    gambar:
+      "../produk/gembung/Gembung Stawbery.jpg",
+  },
+  {
+    id: 19,
+    nama: "Gembung Green Tea",
+    harga: 3000,
+    gambar:
+      "../produk/gembung/green tea.jpg",
+  },
+  {
+    id: 111,
+    nama: "Gembung Keju Susu",
+    harga: 3000,
+    gambar:
+      "../produk/gembung/keju susu.jpg",
+  },
+  {
+    id: 112,
+    nama: "Gembung Nanas",
+    harga: 3000,
+    gambar:
+      "../produk/gembung/Nanas.JPG",
+  },
+  {
+    id: 113,
+    nama: "Gembung Original",
+    harga: 3000,
+    gambar:
+      "../produk/gembung/original.jpg",
+  },
+  {
+    id: 114,
+    nama: "Gembung Sarikaya",
+    harga: 3000,
+    gambar:
+      "../produk/gembung/sarikaya.png",
+  },
+  {
+    id: 115,
+    nama: "Gembung Sosis Meleleh",
+    harga: 3000,
+    gambar:
+      "../produk/gembung/Sosis Melelh.png",
+  },
+  {
+    id: 116,
+    nama: "Gembung Tiramisu",
+    harga: 3000,
+    gambar:
+      "../produk/gembung/tiramisu 2.jpg",
   },
 ];
 
@@ -41,7 +126,7 @@ const Gembung = () => {
   const [cart, setCart] = useState([]);
 
   useEffect(() => {
-    const savedCart = JSON.parse(localStorage.getItem("cart")) || [];
+    const savedCart = JSON.parse(localStorage.getItem("cartjajan")) || [];
     setCart(savedCart);
   }, []);
 
@@ -58,7 +143,7 @@ const Gembung = () => {
       newCart = [...cart, { ...product, quantity: 1 }];
     }
     setCart(newCart);
-    localStorage.setItem("cart", JSON.stringify(newCart));
+    localStorage.setItem("cartjajan", JSON.stringify(newCart));
   };
 
   const decreaseQuantity = (productId) => {
@@ -68,7 +153,7 @@ const Gembung = () => {
       )
       .filter((item) => item.quantity > 0); // Remove item if quantity is 0
     setCart(newCart);
-    localStorage.setItem("cart", JSON.stringify(newCart));
+    localStorage.setItem("cartjajan", JSON.stringify(newCart));
   };
 
   const increaseQuantity = (productId) => {
@@ -76,7 +161,7 @@ const Gembung = () => {
       item.id === productId ? { ...item, quantity: item.quantity + 1 } : item
     );
     setCart(newCart);
-    localStorage.setItem("cart", JSON.stringify(newCart));
+    localStorage.setItem("cartjajan", JSON.stringify(newCart));
   };
 
   return (
@@ -84,7 +169,7 @@ const Gembung = () => {
       <Navbar />
       <section className="mt-12 px-5  lg:px-20 xl:px-30 2xl:px-60">
         <h1 className="text-2xl lg:text-3xl xl:text-4xl font-bold">
-          Product Gembung
+          <Link href="/Product" className="hover:text-gray-500">Product</Link> /  Gembung
         </h1>
         <div className="grid grid-cols-2 lg:grid-cols-4 2xl:grid-cols-5 mt-6 gap-5">
           {products.map((product) => {

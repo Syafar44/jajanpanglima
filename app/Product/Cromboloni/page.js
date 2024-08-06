@@ -12,28 +12,43 @@ import {
 } from "@material-tailwind/react";
 import Footer from "../../components/Footer";
 import Wa from "@/app/components/Wa";
+import Link from "next/link";
 
 const products = [
   {
     id: 41,
-    nama: "Cromboloni coklat",
+    nama: "Cromboloni Capucino",
     harga: 3000,
     gambar:
-      "https://raw.githubusercontent.com/Syafar44/assets/main/assets/image/tes-5.jpg",
+      "../produk/cromboloni/Cromboloni Capucino.jpg",
   },
   {
     id: 42,
-    nama: "Cromboloni keju",
+    nama: "Cromboloni Coklat",
     harga: 3000,
     gambar:
-      "https://raw.githubusercontent.com/Syafar44/assets/main/assets/image/tes-5.jpg",
+      "../produk/cromboloni/Cromboloni Coklat.jpg",
   },
   {
     id: 43,
-    nama: "Cromboloni tiramisu",
+    nama: "Cromboloni Stawberry",
     harga: 3000,
     gambar:
-      "https://raw.githubusercontent.com/Syafar44/assets/main/assets/image/tes-5.jpg",
+      "../produk/cromboloni/Cromboloni Stawberry - Copy.jpg",
+  },
+  {
+    id: 44,
+    nama: "Cromboloni Tiramisu",
+    harga: 3000,
+    gambar:
+      "../produk/cromboloni/Cromboloni Tiramisu.jpg",
+  },
+  {
+    id: 45,
+    nama: "Cromboloni Vanilla",
+    harga: 3000,
+    gambar:
+      "../produk/cromboloni/Cromboloni Vanila.jpg",
   },
 ];
 
@@ -41,7 +56,7 @@ const Cromboloni = () => {
   const [cart, setCart] = useState([]);
 
   useEffect(() => {
-    const savedCart = JSON.parse(localStorage.getItem("cart")) || [];
+    const savedCart = JSON.parse(localStorage.getItem("cartjajan")) || [];
     setCart(savedCart);
   }, []);
 
@@ -58,7 +73,7 @@ const Cromboloni = () => {
       newCart = [...cart, { ...product, quantity: 1 }];
     }
     setCart(newCart);
-    localStorage.setItem("cart", JSON.stringify(newCart));
+    localStorage.setItem("cartjajan", JSON.stringify(newCart));
   };
 
   const decreaseQuantity = (productId) => {
@@ -68,7 +83,7 @@ const Cromboloni = () => {
       )
       .filter((item) => item.quantity > 0); // Remove item if quantity is 0
     setCart(newCart);
-    localStorage.setItem("cart", JSON.stringify(newCart));
+    localStorage.setItem("cartjajan", JSON.stringify(newCart));
   };
 
   const increaseQuantity = (productId) => {
@@ -76,15 +91,18 @@ const Cromboloni = () => {
       item.id === productId ? { ...item, quantity: item.quantity + 1 } : item
     );
     setCart(newCart);
-    localStorage.setItem("cart", JSON.stringify(newCart));
+    localStorage.setItem("cartjajan", JSON.stringify(newCart));
   };
 
   return (
     <>
       <Navbar />
       <section className="mt-12 px-5 lg:px-20 xl:px-30 2xl:px-60">
-        <h1 className="text-2xl lg:text-3xl xl:text-4xl font-bold">
-          Product Cromboloni
+      <h1 className="text-2xl lg:text-3xl xl:text-4xl font-bold">
+          <Link href="/Product" className="hover:text-gray-500">
+            Product
+          </Link>{" "}
+          / Cromboloni
         </h1>
         <div className="grid grid-cols-2 lg:grid-cols-4 2xl:grid-cols-5 mt-6 gap-5">
           {products.map((product) => {

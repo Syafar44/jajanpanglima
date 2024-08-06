@@ -12,28 +12,64 @@ import {
 } from "@material-tailwind/react";
 import Footer from "../../components/Footer";
 import Wa from "@/app/components/Wa";
+import Link from "next/link";
 
 const products = [
   {
     id: 21,
-    nama: "Pizza sosis",
+    nama: "Pizza Ayam Kari",
     harga: 3000,
     gambar:
-      "https://raw.githubusercontent.com/Syafar44/assets/main/assets/image/tes-5.jpg",
+      "../produk/pizza/Pizza Ayam Kari.jpg",
   },
   {
     id: 22,
-    nama: "Pizza keju",
+    nama: "Pizza Beff",
     harga: 3000,
     gambar:
-      "https://raw.githubusercontent.com/Syafar44/assets/main/assets/image/tes-5.jpg",
+      "../produk/pizza/Pizza Beff.png",
   },
   {
     id: 23,
-    nama: "Pizza tomat",
+    nama: "Pizza Chicken",
     harga: 3000,
     gambar:
-      "https://raw.githubusercontent.com/Syafar44/assets/main/assets/image/tes-5.jpg",
+      "../produk/pizza/Pizza Chicken.png",
+  },
+  {
+    id: 24,
+    nama: "Pizza Meat Lovers",
+    harga: 3000,
+    gambar:
+      "../produk/pizza/Pizza Meat Lovers.png",
+  },
+  {
+    id: 25,
+    nama: "Pizza Slice Beff",
+    harga: 3000,
+    gambar:
+      "../produk/pizza/Pizza Slice Beff,.jpg",
+  },
+  {
+    id: 26,
+    nama: "Pizza  Slice Chicken",
+    harga: 3000,
+    gambar:
+      "../produk/pizza/Pizza Slice Chicken.jpg",
+  },
+  {
+    id: 27,
+    nama: "Pizza Slice Meat Lovers",
+    harga: 3000,
+    gambar:
+      "../produk/pizza/Pizza Slice Meat Lovers.jpg",
+  },
+  {
+    id: 28,
+    nama: "Pizza Sosis",
+    harga: 3000,
+    gambar:
+      "../produk/pizza/Pizza Sosis.jpg",
   },
 ];
 
@@ -41,7 +77,7 @@ const Pizza = () => {
   const [cart, setCart] = useState([]);
 
   useEffect(() => {
-    const savedCart = JSON.parse(localStorage.getItem("cart")) || [];
+    const savedCart = JSON.parse(localStorage.getItem("cartjajan")) || [];
     setCart(savedCart);
   }, []);
 
@@ -58,7 +94,7 @@ const Pizza = () => {
       newCart = [...cart, { ...product, quantity: 1 }];
     }
     setCart(newCart);
-    localStorage.setItem("cart", JSON.stringify(newCart));
+    localStorage.setItem("cartjajan", JSON.stringify(newCart));
   };
 
   const decreaseQuantity = (productId) => {
@@ -68,7 +104,7 @@ const Pizza = () => {
       )
       .filter((item) => item.quantity > 0);
     setCart(newCart);
-    localStorage.setItem("cart", JSON.stringify(newCart));
+    localStorage.setItem("cartjajan", JSON.stringify(newCart));
   };
 
   const increaseQuantity = (productId) => {
@@ -76,7 +112,7 @@ const Pizza = () => {
       item.id === productId ? { ...item, quantity: item.quantity + 1 } : item
     );
     setCart(newCart);
-    localStorage.setItem("cart", JSON.stringify(newCart));
+    localStorage.setItem("cartjajan", JSON.stringify(newCart));
   };
 
   return (
@@ -84,7 +120,10 @@ const Pizza = () => {
       <Navbar />
       <section className="mt-12 px-5  lg:px-20 xl:px-30 2xl:px-60">
         <h1 className="text-2xl lg:text-3xl xl:text-4xl font-bold">
-          Product Pizza
+          <Link href="/Product" className="hover:text-gray-500">
+            Product
+          </Link>{" "}
+          / Pizza
         </h1>
         <div className="grid grid-cols-2 lg:grid-cols-4 2xl:grid-cols-5 mt-6 gap-5">
           {products.map((product) => {

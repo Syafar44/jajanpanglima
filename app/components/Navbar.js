@@ -35,7 +35,7 @@ const Navbar = () => {
   };
 
   useEffect(() => {
-    const savedCart = JSON.parse(localStorage.getItem("cart")) || [];
+    const savedCart = JSON.parse(localStorage.getItem("cartjajan")) || [];
     const total = savedCart.reduce((sum, product) => sum + product.quantity, 0);
     setTotalItems(total);
   }, []);

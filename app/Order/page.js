@@ -48,7 +48,7 @@ const Order = () => {
   const [metod, setMetod] = useState("Ambil di tempat");
 
   useEffect(() => {
-    const savedCart = JSON.parse(localStorage.getItem("cart")) || [];
+    const savedCart = JSON.parse(localStorage.getItem("cartjajan")) || [];
     setCart(savedCart);
   }, []);
 
@@ -59,7 +59,7 @@ const Order = () => {
         : product
     );
     setCart(newCart);
-    localStorage.setItem("cart", JSON.stringify(newCart));
+    localStorage.setItem("cartjajan", JSON.stringify(newCart));
   };
 
   const decreaseQuantity = (productId) => {
@@ -69,13 +69,13 @@ const Order = () => {
         : product
     );
     setCart(newCart);
-    localStorage.setItem("cart", JSON.stringify(newCart));
+    localStorage.setItem("cartjajan", JSON.stringify(newCart));
   };
 
   const removeFromCart = (productId) => {
     const newCart = cart.filter((product) => product.id !== productId);
     setCart(newCart);
-    localStorage.setItem("cart", JSON.stringify(newCart));
+    localStorage.setItem("cartjajan", JSON.stringify(newCart));
   };
 
   const calculateTotal = () => {

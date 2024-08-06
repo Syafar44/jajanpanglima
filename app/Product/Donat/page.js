@@ -12,28 +12,74 @@ import {
 } from "@material-tailwind/react";
 import Footer from "../../components/Footer";
 import Wa from "@/app/components/Wa";
+import Link from "next/link";
 
 const products = [
   {
     id: 51,
-    nama: "Donat coklat",
+    nama: "Donat Abon",
     harga: 3000,
-    gambar:
-      "https://raw.githubusercontent.com/Syafar44/assets/main/assets/image/tes-5.jpg",
+    gambar: "../produk/donat/Donat Abon.jpg",
   },
   {
     id: 52,
-    nama: "Donat keju",
+    nama: "Donat Capucino",
     harga: 3000,
-    gambar:
-      "https://raw.githubusercontent.com/Syafar44/assets/main/assets/image/tes-5.jpg",
+    gambar: "../produk/donat/Donat Capucino.jpg",
   },
   {
     id: 53,
-    nama: "Donat tiramisu",
+    nama: "Donat Coklat Kacang",
     harga: 3000,
-    gambar:
-      "https://raw.githubusercontent.com/Syafar44/assets/main/assets/image/tes-5.jpg",
+    gambar: "../produk/donat/Donat Coklat Kacang.jpg",
+  },
+  {
+    id: 54,
+    nama: "Donat Coklat",
+    harga: 3000,
+    gambar: "../produk/donat/Donat Coklat.jpg",
+  },
+  {
+    id: 55,
+    nama: "Donat Keju Glaze Vanila",
+    harga: 3000,
+    gambar: "../produk/donat/Donat Keju Glaze Vanila.jpg",
+  },
+  {
+    id: 56,
+    nama: "Donat Meses Coklat",
+    harga: 3000,
+    gambar: "../produk/donat/Donat Meses Coklat.jpg",
+  },
+  {
+    id: 57,
+    nama: "Donat Oreo",
+    harga: 3000,
+    gambar: "../produk/donat/Donat Oreo.jpg",
+  },
+  {
+    id: 58,
+    nama: "Donat Original",
+    harga: 3000,
+    gambar: "../produk/donat/Donat Original,.jpg",
+  },
+  {
+    id: 59,
+    nama: "Donat Stawberry",
+    harga: 3000,
+    gambar: "../produk/donat/Donat Stawberry,.jpg",
+  },
+  {
+    id: 551,
+    nama: "Donat Taro",
+    harga: 3000,
+    gambar: "../produk/donat/Donat Taro.jpg",
+  },
+  {
+    id: 552,
+    nama: "Donat Tiramisu Almond",
+    harga: 3000,
+    gambar: "../produk/donat/Donat Tiramisu Almond,.jpg",
   },
 ];
 
@@ -41,7 +87,7 @@ const Donat = () => {
   const [cart, setCart] = useState([]);
 
   useEffect(() => {
-    const savedCart = JSON.parse(localStorage.getItem("cart")) || [];
+    const savedCart = JSON.parse(localStorage.getItem("cartjajan")) || [];
     setCart(savedCart);
   }, []);
 
@@ -58,7 +104,7 @@ const Donat = () => {
       newCart = [...cart, { ...product, quantity: 1 }];
     }
     setCart(newCart);
-    localStorage.setItem("cart", JSON.stringify(newCart));
+    localStorage.setItem("cartjajan", JSON.stringify(newCart));
   };
 
   const decreaseQuantity = (productId) => {
@@ -68,7 +114,7 @@ const Donat = () => {
       )
       .filter((item) => item.quantity > 0); // Remove item if quantity is 0
     setCart(newCart);
-    localStorage.setItem("cart", JSON.stringify(newCart));
+    localStorage.setItem("cartjajan", JSON.stringify(newCart));
   };
 
   const increaseQuantity = (productId) => {
@@ -76,7 +122,7 @@ const Donat = () => {
       item.id === productId ? { ...item, quantity: item.quantity + 1 } : item
     );
     setCart(newCart);
-    localStorage.setItem("cart", JSON.stringify(newCart));
+    localStorage.setItem("cartjajan", JSON.stringify(newCart));
   };
 
   return (
@@ -84,7 +130,10 @@ const Donat = () => {
       <Navbar />
       <section className="mt-12 px-5  lg:px-20 xl:px-30 2xl:px-60">
         <h1 className="text-2xl lg:text-3xl xl:text-4xl font-bold">
-          Product Donat
+          <Link href="/Product" className="hover:text-gray-500">
+            Product
+          </Link>{" "}
+          / Donat
         </h1>
         <div className="grid grid-cols-2 lg:grid-cols-4 2xl:grid-cols-5 mt-6 gap-5">
           {products.map((product) => {
