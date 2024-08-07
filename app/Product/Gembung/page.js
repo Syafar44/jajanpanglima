@@ -19,115 +19,102 @@ const products = [
     id: 11,
     nama: "Kari Meleleh",
     harga: 3000,
-    gambar:
-      "../produk/gembung/ayam kari meleleh.jpg",
+    gambar: "../produk/gembung/ayam kari meleleh.jpg",
   },
   {
     id: 12,
     nama: "Gembung Chococrunchy",
     harga: 3000,
-    gambar:
-      "../produk/gembung/Chococrunchy.jpg",
+    gambar: "../produk/gembung/Chococrunchy.jpg",
   },
   {
     id: 13,
     nama: "Gembung Choco Keju",
     harga: 3000,
-    gambar:
-      "../produk/gembung/coklat atau choco keju.jpg",
+    gambar: "../produk/gembung/coklat atau choco keju.jpg",
   },
   {
     id: 14,
     nama: "Gembung Coklat",
     harga: 3000,
-    gambar:
-      "../produk/gembung/Coklat.JPG",
+    gambar: "../produk/gembung/Coklat.JPG",
   },
   {
     id: 15,
     nama: "Gembung Durian",
     harga: 3000,
-    gambar:
-      "../produk/gembung/durian.jpg",
+    gambar: "../produk/gembung/durian.jpg",
   },
   {
     id: 16,
     nama: "Gembung Durian Keju",
     harga: 3000,
-    gambar:
-      "../produk/gembung/Gembung Durian Keju.jpg",
+    gambar: "../produk/gembung/Gembung Durian Keju.jpg",
   },
   {
     id: 17,
     nama: "Gembung Stawbery Keju",
     harga: 3000,
-    gambar:
-      "../produk/gembung/Gembung Sarikaya keju.jpg",
+    gambar: "../produk/gembung/Gembung Sarikaya keju.jpg",
   },
   {
     id: 18,
     nama: "Gembung Stawbery",
     harga: 3000,
-    gambar:
-      "../produk/gembung/Gembung Stawbery.jpg",
+    gambar: "../produk/gembung/Gembung Stawbery.jpg",
   },
   {
     id: 19,
     nama: "Gembung Green Tea",
     harga: 3000,
-    gambar:
-      "../produk/gembung/green tea.jpg",
+    gambar: "../produk/gembung/green tea.jpg",
   },
   {
     id: 111,
     nama: "Gembung Keju Susu",
     harga: 3000,
-    gambar:
-      "../produk/gembung/keju susu.jpg",
+    gambar: "../produk/gembung/keju susu.jpg",
   },
   {
     id: 112,
     nama: "Gembung Nanas",
     harga: 3000,
-    gambar:
-      "../produk/gembung/Nanas.JPG",
+    gambar: "../produk/gembung/Nanas.JPG",
   },
   {
     id: 113,
     nama: "Gembung Original",
     harga: 3000,
-    gambar:
-      "../produk/gembung/original.jpg",
+    gambar: "../produk/gembung/original.jpg",
   },
   {
     id: 114,
     nama: "Gembung Sarikaya",
     harga: 3000,
-    gambar:
-      "../produk/gembung/sarikaya.png",
+    gambar: "../produk/gembung/sarikaya.png",
   },
   {
     id: 115,
     nama: "Gembung Sosis Meleleh",
     harga: 3000,
-    gambar:
-      "../produk/gembung/Sosis Melelh.png",
+    gambar: "../produk/gembung/Sosis Melelh.png",
   },
   {
     id: 116,
     nama: "Gembung Tiramisu",
     harga: 3000,
-    gambar:
-      "../produk/gembung/tiramisu 2.jpg",
+    gambar: "../produk/gembung/tiramisu 2.jpg",
   },
 ];
 
 const Gembung = () => {
   const [cart, setCart] = useState([]);
+  const [isLoading, setIsLoading] = useState(true);
 
   useEffect(() => {
     const savedCart = JSON.parse(localStorage.getItem("cartjajan")) || [];
     setCart(savedCart);
+    setIsLoading(false);
   }, []);
 
   const addToCart = (product) => {
@@ -169,7 +156,10 @@ const Gembung = () => {
       <Navbar />
       <section className="mt-12 px-5  lg:px-20 xl:px-30 2xl:px-60">
         <h1 className="text-2xl lg:text-3xl xl:text-4xl font-bold">
-          <Link href="/Product" className="hover:text-gray-500">Product</Link> /  Gembung
+          <Link href="/Product" className="hover:text-gray-500">
+            Product
+          </Link>{" "}
+          / Gembung
         </h1>
         <div className="grid grid-cols-2 lg:grid-cols-4 2xl:grid-cols-5 mt-6 gap-5">
           {products.map((product) => {
@@ -177,7 +167,11 @@ const Gembung = () => {
             return (
               <Card key={product.id}>
                 <CardHeader floated={false}>
-                  <img src={product.gambar} alt={product.nama} />
+                  {isLoading ? (
+                    <div className="skeleton h-48 lg:h-60 xl:h-80"></div>
+                  ) : (
+                    <img src={product.gambar} alt={product.nama} />
+                  )}
                 </CardHeader>
                 <CardBody className="text-center">
                   <Typography

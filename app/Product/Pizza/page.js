@@ -19,66 +19,60 @@ const products = [
     id: 21,
     nama: "Pizza Ayam Kari",
     harga: 3000,
-    gambar:
-      "../produk/pizza/Pizza Ayam Kari.jpg",
+    gambar: "../produk/pizza/Pizza Ayam Kari.jpg",
   },
   {
     id: 22,
     nama: "Pizza Beff",
     harga: 3000,
-    gambar:
-      "../produk/pizza/Pizza Beff.png",
+    gambar: "../produk/pizza/Pizza Beff.png",
   },
   {
     id: 23,
     nama: "Pizza Chicken",
     harga: 3000,
-    gambar:
-      "../produk/pizza/Pizza Chicken.png",
+    gambar: "../produk/pizza/Pizza Chicken.png",
   },
   {
     id: 24,
     nama: "Pizza Meat Lovers",
     harga: 3000,
-    gambar:
-      "../produk/pizza/Pizza Meat Lovers.png",
+    gambar: "../produk/pizza/Pizza Meat Lovers.png",
   },
   {
     id: 25,
     nama: "Pizza Slice Beff",
     harga: 3000,
-    gambar:
-      "../produk/pizza/Pizza Slice Beff,.jpg",
+    gambar: "../produk/pizza/Pizza Slice Beff,.jpg",
   },
   {
     id: 26,
     nama: "Pizza  Slice Chicken",
     harga: 3000,
-    gambar:
-      "../produk/pizza/Pizza Slice Chicken.jpg",
+    gambar: "../produk/pizza/Pizza Slice Chicken.jpg",
   },
   {
     id: 27,
     nama: "Pizza Slice Meat Lovers",
     harga: 3000,
-    gambar:
-      "../produk/pizza/Pizza Slice Meat Lovers.jpg",
+    gambar: "../produk/pizza/Pizza Slice Meat Lovers.jpg",
   },
   {
     id: 28,
     nama: "Pizza Sosis",
     harga: 3000,
-    gambar:
-      "../produk/pizza/Pizza Sosis.jpg",
+    gambar: "../produk/pizza/Pizza Sosis.jpg",
   },
 ];
 
 const Pizza = () => {
   const [cart, setCart] = useState([]);
+  const [isLoading, setIsLoading] = useState(true);
 
   useEffect(() => {
     const savedCart = JSON.parse(localStorage.getItem("cartjajan")) || [];
     setCart(savedCart);
+    setIsLoading(false);
   }, []);
 
   const addToCart = (product) => {
@@ -132,7 +126,11 @@ const Pizza = () => {
               <Card key={product.id} className="flex justify-between">
                 <div>
                   <CardHeader floated={false}>
-                    <img src={product.gambar} alt={product.nama} />
+                    {isLoading ? (
+                      <div className="skeleton h-48 lg:h-60 xl:h-80"></div>
+                    ) : (
+                      <img src={product.gambar} alt={product.nama} />
+                    )}
                   </CardHeader>
                   <CardBody className="text-center">
                     <Typography

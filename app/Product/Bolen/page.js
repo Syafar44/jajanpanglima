@@ -37,10 +37,12 @@ const products = [
 
 const Bolen = () => {
   const [cart, setCart] = useState([]);
+  const [isLoading, setIsLoading] = useState(true);
 
   useEffect(() => {
     const savedCart = JSON.parse(localStorage.getItem("cartjajan")) || [];
     setCart(savedCart);
+    setIsLoading(false);
   }, []);
 
   const addToCart = (product) => {
@@ -94,7 +96,11 @@ const Bolen = () => {
               <Card key={product.id} className="flex justify-between">
                 <div>
                   <CardHeader floated={false}>
-                    <img src={product.gambar} alt={product.nama} />
+                    {isLoading ? (
+                      <div className="skeleton h-48 lg:h-60 xl:h-80"></div>
+                    ) : (
+                      <img src={product.gambar} alt={product.nama} />
+                    )}
                   </CardHeader>
                   <CardBody className="text-center">
                     <Typography

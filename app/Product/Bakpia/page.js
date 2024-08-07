@@ -7,8 +7,8 @@ import {
   CardBody,
   CardFooter,
   Typography,
-  Button,
-  Chip,
+  Button, 
+  Chip
 } from "@material-tailwind/react";
 import Footer from "../../components/Footer";
 import Wa from "@/app/components/Wa";
@@ -19,52 +19,48 @@ const products = [
     id: 31,
     nama: "Pia coklat",
     harga: 3000,
-    gambar:
-      "../produk/bakpia/Pia Coklat.jpg",
+    gambar: "../produk/bakpia/Pia Coklat.jpg",
   },
   {
     id: 32,
     nama: "Pia keju",
     harga: 3000,
-    gambar:
-      "../produk/bakpia/Pia Keju.jpg",
+    gambar: "../produk/bakpia/Pia Keju.jpg",
   },
   {
     id: 33,
     nama: "Bakpia tiramisu",
     harga: 3000,
-    gambar:
-      "../produk/bakpia/Pia Tiramizu.jpg",
+    gambar: "../produk/bakpia/Pia Tiramizu.jpg",
   },
   {
     id: 34,
     nama: "Bakpia Kacang",
     harga: 3000,
-    gambar:
-      "../produk/bakpia/Pia Kacang.jpg",
+    gambar: "../produk/bakpia/Pia Kacang.jpg",
   },
   {
     id: 35,
     nama: "Bakpia Taro",
     harga: 3000,
-    gambar:
-      "../produk/bakpia/Pia Taro.jpg",
+    gambar: "../produk/bakpia/Pia Taro.jpg",
   },
   {
     id: 36,
     nama: "Paket Pia",
     harga: 3000,
-    gambar:
-      "../produk/bakpia/1 Paket Pia.jpg",
+    gambar: "../produk/bakpia/1 Paket Pia.jpg",
   },
 ];
 
 const Bakpia = () => {
   const [cart, setCart] = useState([]);
+  const [isLoading, setIsLoading] = useState(true);
 
   useEffect(() => {
     const savedCart = JSON.parse(localStorage.getItem("cartjajan")) || [];
     setCart(savedCart);
+    setIsLoading(false);
   }, []);
 
   const addToCart = (product) => {
@@ -88,7 +84,7 @@ const Bakpia = () => {
       .map((item) =>
         item.id === productId ? { ...item, quantity: item.quantity - 1 } : item
       )
-      .filter((item) => item.quantity > 0); // Remove item if quantity is 0
+      .filter((item) => item.quantity > 0);
     setCart(newCart);
     localStorage.setItem("cartjajan", JSON.stringify(newCart));
   };
@@ -105,7 +101,7 @@ const Bakpia = () => {
     <>
       <Navbar />
       <section className="mt-12 px-5 lg:px-20 xl:px-30 2xl:px-60">
-      <h1 className="text-2xl lg:text-3xl xl:text-4xl font-bold">
+        <h1 className="text-2xl lg:text-3xl xl:text-4xl font-bold" >
           <Link href="/Product" className="hover:text-gray-500">
             Product
           </Link>{" "}
@@ -118,7 +114,11 @@ const Bakpia = () => {
               <Card key={product.id} className="flex justify-between">
                 <div>
                   <CardHeader floated={false}>
-                    <img src={product.gambar} alt={product.nama} />
+                    {isLoading ? (
+                      <div className="skeleton h-48 lg:h-60 xl:h-80"></div>
+                    ) : (
+                      <img src={product.gambar} alt={product.nama} />
+                    )}
                   </CardHeader>
                   <CardBody className="text-center">
                     <Typography
@@ -135,7 +135,7 @@ const Bakpia = () => {
                 <CardFooter className="flex justify-center -mt-10">
                   {cartItem ? (
                     cartItem.quantity > 0 ? (
-                      <div className="flex transition ease-in-out gap-1 lg:gap-2 bg-kuning scale-[0.7] lg:scale-75 -mt-3 lg:-mt-2 -mb-3  lg:px-3 px-2 lg:mx-6 py-3 rounded-lg">
+                      <div className="flex transition ease-in-out gap-1 lg:gap-2 bg-kuning scale-[0.7] lg:scale-75 -mt-3 lg:-mt-2 -mb-3 lg:px-3 px-2 lg:mx-6 py-3 rounded-lg">
                         <Button
                           className="px-4"
                           onClick={() => decreaseQuantity(product.id)}
@@ -177,7 +177,7 @@ const Bakpia = () => {
           })}
         </div>
       </section>
-      <Footer />\
+      <Footer />
       <Wa />
     </>
   );
