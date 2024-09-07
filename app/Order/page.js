@@ -46,6 +46,8 @@ const Order = () => {
   const [nomer, setNomer] = useState("");
   const [paymentMethod, setPaymentMethod] = useState("Transfer bank");
   const [metod, setMetod] = useState("Ambil di tempat");
+  const [outlet, setOutlet] = useState("Outlet 1");
+  const [pickupTime, setPickupTime] = useState(""); // Menambahkan state untuk jam pengambilan makanan
 
   useEffect(() => {
     const savedCart = JSON.parse(localStorage.getItem("cartjajan")) || [];
@@ -85,36 +87,33 @@ const Order = () => {
     );
   };
 
-  const handleSubmit = async () => {
-    const data = {
-      nama: name,
-      alamat: address,
-      metod: metod,
-      nomer: nomer,
-      produk: cart,
-      pembayaran: paymentMethod,
-      total: rupiah(calculateTotal()),
-    };
+  const sendMessageToWhatsApp = () => {
+    let message = `*JAJAN PANGLIMA*\nNama Penerima: *${name}*\nProduk:\n`;
 
-    const openModalSucces = () => {
-      document.getElementById("my_modal_1").showModal();
-    };
+    cart.forEach((item) => {
+      message += `- *${item.nama}*, Harga: ${item.harga}, Jumlah: *${item.quantity}*\n`;
+    });
 
-    const openModalError = () => {
-      document.getElementById("my_modal_2").showModal();
-    };
-
-    const request = new XMLHttpRequest();
-    request.open("POST", "/api/sendMessage", true); // Pastikan URL sudah benar
-    request.setRequestHeader("Content-Type", "application/json;charset=UTF-8");
-    request.onreadystatechange = function () {
-      if (request.readyState === 4 && request.status === 200) {
-        openModalSucces();
-      } else if (request.readyState === 4) {
-        openModalError();
+    if (metod === "Ambil di tempat") {
+      message += `\nOutlet: *${outlet}*`;
+      if (pickupTime) {
+        message += `\nJam Pengambilan: *${pickupTime}*`;
       }
-    };
-    request.send(JSON.stringify(data));
+    } else {
+      message += `\nAlamat: _${address}_`;
+    }
+
+    message += `\nPembayaran: *${paymentMethod}*\nMetode: *${metod}*\nTotal Dibayar: *${rupiah(
+      calculateTotal()
+    )}*`;
+
+    const phoneNumber = "+6282220002237"; // Nomor WhatsApp toko
+    const encodedMessage = encodeURIComponent(message);
+    const whatsappURL = `https://api.whatsapp.com/send?phone=${phoneNumber}&text=${encodedMessage}`;
+
+    window.location.href = whatsappURL;
+
+    localStorage.removeItem("cartjajan");
   };
 
   const rupiah = (number) => {
@@ -124,7 +123,13 @@ const Order = () => {
     }).format(number);
   };
 
-  const isFormComplete = name && nomer && paymentMethod && metod;
+  const isFormComplete =
+    name &&
+    nomer &&
+    paymentMethod &&
+    metod &&
+    (metod === "Diantar" ? address : outlet) &&
+    (metod !== "Ambil di tempat" || pickupTime); // Menambahkan pengecekan untuk jam pengambilan
 
   return (
     <>
@@ -162,7 +167,6 @@ const Order = () => {
                     size="lg"
                     className="rounded-lg"
                   />
-
                   <Button
                     className="px-4"
                     onClick={() => increaseQuantity(product.id)}
@@ -186,137 +190,92 @@ const Order = () => {
           <h1>Total Harga Keseluruhan</h1>
           <h1 className="text-kuning">{rupiah(calculateTotal())}</h1>
         </div>
-        <div className="relative p-5 gap-3 grid grid-cols-6">
-          <div className="col-start-1 col-span-6 lg:col-span-3">
-            <div>
-              <Input
-                type="text"
-                label="Nama Penerima"
-                value={name}
-                onChange={(e) => setName(e.target.value)}
-                className=""
-                containerProps={{
-                  className: "",
-                }}
-              />
-            </div>
-          </div>
-          <div className="col-span-6 lg:col-span-3">
-            <div>
-              <Input
-                type="text"
-                label="Nomer"
-                value={nomer}
-                onChange={(e) => setNomer(e.target.value)}
-                className="w-full"
-                containerProps={{
-                  className: "",
-                }}
-              />
-            </div>
-          </div>
-          <div className="col-start-1 col-span-6">
+        <div className="p-5 grid grid-cols-1 gap-5">
+          <div>
             <Input
               type="text"
-              label="Alamat (Opsional)"
-              value={address}
-              onChange={(e) => setAddress(e.target.value)}
-              containerProps={{
-                className: "min-w-0",
-              }}
+              label="Nama Penerima"
+              value={name}
+              onChange={(e) => setName(e.target.value)}
             />
           </div>
-          <div className="col-start-1 col-span-3">
+          <div>
+            <Input
+              type="number"
+              label="No. Telepon"
+              value={nomer}
+              onChange={(e) => setNomer(e.target.value)}
+            />
+          </div>
+          <div>
+            <div className="flex flex-col gap-4">
+              <select
+                label="Metode Pengiriman"
+                value={metod}
+                onChange={(e) => setMetod(e.target.value)}
+                class="block appearance-none w-full bg-gray-200 border border-gray-200 text-gray-700 py-3 px-4 pr-8 rounded-md leading-tight focus:outline-none focus:bg-white focus:border-gray-500"
+                id="grid-state"
+              >
+                <option value="ambil di tempat">Ambil di tempat</option>
+                <option value="diantar">Diantar</option>
+              </select>
+              {metod === "diantar" ? (
+                <Input
+                  type="text"
+                  label="Alamat"
+                  value={address}
+                  onChange={(e) => setAddress(e.target.value)}
+                />
+              ) : (
+                <>
+                  <select
+                    label="Pilih Outlet"
+                    value={outlet}
+                    onChange={(e) => setOutlet(e.target.value)}
+                    class="block appearance-none w-full bg-gray-200 border border-gray-200 text-gray-700 py-3 px-4 pr-8 rounded-md leading-tight focus:outline-none focus:bg-white focus:border-gray-500"
+                    id="grid-state"
+                  >
+                    <option value="outlet 1">Outlet 1</option>
+                    <option value="outlet 2">Outlet 2</option>
+                    <option value="outlet 3">Outlet 3</option>
+                  </select>
+                  <Input
+                    type="time"
+                    label="Jam Pengambilan"
+                    value={pickupTime}
+                    onChange={(e) => setPickupTime(e.target.value)}
+                    placeholder="HH:MM"
+                  />
+                </>
+              )}
+            </div>
+          </div>
+          <div>
             <select
+              label="Metode Pembayaran"
               value={paymentMethod}
               onChange={(e) => setPaymentMethod(e.target.value)}
-              label="Select Pembayaran"
-              className="select select-bordered select-sm w-full h-full"
+              class="block appearance-none w-full bg-gray-200 border border-gray-200 text-gray-700 py-3 px-4 pr-8 rounded-md leading-tight focus:outline-none focus:bg-white focus:border-gray-500"
+              id="grid-state"
             >
-              <option value="Transfer Bank">Transfer Bank</option>
-              <option value="COD">COD</option>
-            </select>
-          </div>
-          <div className="col-span-3">
-            <select
-              value={metod}
-              onChange={(e) => setMetod(e.target.value)}
-              label="Select Metod"
-              className="select select-bordered select-sm h-full w-full"
-            >
-              <option value="Ambil di tempat">Ambil di tempat</option>
-              <option value="Antar ke Tempat">Antar ke tempat</option>
+              <option value="transfer bank">Transfer bank</option>
+              <option value="kartu kredit/debit">Kartu kredit/debit</option>
+              <option value="tunai">Tunai</option>
             </select>
           </div>
         </div>
-        <div className="pb-5 px-5 flex justify-between mt-2">
-          <h1 className="text-sm lg:text-xl font-bold text-red-700">
-            Pastikan Bahwa Nama Penerima, Alamat, serta Nomer sudah benar!
-          </h1>
+        <div className="flex justify-center my-5 px-5">
           <Button
-            size="sm"
-            color={isFormComplete ? "gray" : "blue-gray"}
+            className={`w-full ${teko.className}`}
             disabled={!isFormComplete}
-            className="rounded"
-            onClick={handleSubmit}
+            onClick={sendMessageToWhatsApp}
           >
-            Kirim
+            Kirim Pesanan
           </Button>
-          <dialog id="my_modal_1" className="modal">
-            <div className="modal-box">
-              <h3 className="font-bold text-xl text-kuning bg-hitam rounded-xl text-center py-2">
-                Hai Sobat Jajan
-              </h3>
-              <div className="py-4 font-semibold text-xl">
-                <h1 className="text-green-700 text-2xl font-bold">
-                  Pesanan anda sudah terkirim!
-                </h1>
-                <strong className="text-red-600 text-lg">
-                  Pastikan nomer whatsapp anda aktif dan akan kami kirimkan
-                  pesan{" "}
-                  <span className="font-bold text-green-700">KONFIRMASI</span>{" "}
-                  paling Lambat 1 jam setelah pesanan ini dilakukan.
-                </strong>
-                <h3 className="mt-5">Terimakasih.</h3>
-              </div>
-              <div className="modal-action">
-                <form method="dialog">
-                  <button className="btn bg-black text-kuning rounded-xl">
-                    Tutup
-                  </button>
-                </form>
-              </div>
-            </div>
-          </dialog>
-          <dialog id="my_modal_2" className="modal">
-            <div className="modal-box">
-              <h3 className="font-bold text-xl text-kuning bg-hitam rounded-xl text-center py-2">
-                Hai Sobat Jajan
-              </h3>
-              <div className="py-4 font-semibold text-xl">
-                <h1 className="text-red-700 text-2xl">
-                  Pesanan anda Gagal terkirim!
-                </h1>
-                <p className="text-lg">
-                  Coba kirim ulang pesanan anda atau Hubungi kami pada nomer
-                  whatsapp berikut :
-                </p>
-                <p>082250851457</p>
-                <h3 className="mt-5">Terimakasih.</h3>
-              </div>
-              <div className="modal-action">
-                <form method="dialog">
-                  <button className="btn bg-black text-kuning rounded-xl">
-                    Tutup
-                  </button>
-                </form>
-              </div>
-            </div>
-          </dialog>
         </div>
       </Card>
-      <Footer />
       <Wa />
+      <Footer />
     </>
   );
 };

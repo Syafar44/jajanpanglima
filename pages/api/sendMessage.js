@@ -11,10 +11,10 @@ export default async function handler(req, res) {
   if (req.method === "POST") {
     const { nama, nomer, total, metod, alamat, produk, pembayaran } = req.body;
     let message = `*JAJAN PANGLIMA*\nNama Penerima: *${nama}.*\nNomer: https://wa.me/${nomer}\nAlamat: _${alamat}._\nProduk:\n`;
-    produk.forEach((item, index) => {
-      message += `${index + 1}. Nama Produk: *${item.nama}*, Harga: ${rupiah(
-        item.harga
-      )}, Jumlah: *${item.quantity}*\n`;
+    produk.forEach((item) => {
+      message += `*${item.nama}*, Harga: ${rupiah(item.harga)}, Jumlah: *${
+        item.quantity
+      }*\n`;
     });
     message += `\nPembayaran: *${pembayaran}*\nMetod: *${metod}* \nTotal Dibayar: *${total}*`;
 
