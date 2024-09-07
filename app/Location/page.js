@@ -19,7 +19,7 @@ const Location = () => {
   }, []);
 
   return (
-    <>
+    <div className="overflow-x-hidden">
       <Navbar />
       <section className="mt-10 mx-5 lg:px-20 2xl:px-52">
         <h1
@@ -276,7 +276,7 @@ const Location = () => {
       </section>
       <Footer />
       <Wa />
-    </>
+    </div>
   );
 };
 

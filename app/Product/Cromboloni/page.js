@@ -19,36 +19,31 @@ const products = [
     id: 41,
     nama: "Cromboloni Capucino",
     harga: 3000,
-    gambar:
-      "../produk/cromboloni/Cromboloni Capucino.jpg",
+    gambar: "../produk/cromboloni/Cromboloni Capucino.jpg",
   },
   {
     id: 42,
     nama: "Cromboloni Coklat",
     harga: 3000,
-    gambar:
-      "../produk/cromboloni/Cromboloni Coklat.jpg",
+    gambar: "../produk/cromboloni/Cromboloni Coklat.jpg",
   },
   {
     id: 43,
     nama: "Cromboloni Stawberry",
     harga: 3000,
-    gambar:
-      "../produk/cromboloni/Cromboloni Stawberry - Copy.jpg",
+    gambar: "../produk/cromboloni/Cromboloni Stawberry - Copy.jpg",
   },
   {
     id: 44,
     nama: "Cromboloni Tiramisu",
     harga: 3000,
-    gambar:
-      "../produk/cromboloni/Cromboloni Tiramisu.jpg",
+    gambar: "../produk/cromboloni/Cromboloni Tiramisu.jpg",
   },
   {
     id: 45,
     nama: "Cromboloni Vanilla",
     harga: 3000,
-    gambar:
-      "../produk/cromboloni/Cromboloni Vanila.jpg",
+    gambar: "../produk/cromboloni/Cromboloni Vanila.jpg",
   },
 ];
 
@@ -56,12 +51,10 @@ const Cromboloni = () => {
   const [cart, setCart] = useState([]);
   const [isLoading, setIsLoading] = useState(true);
 
-
   useEffect(() => {
     const savedCart = JSON.parse(localStorage.getItem("cartjajan")) || [];
     setCart(savedCart);
     setIsLoading(false);
-
   }, []);
 
   const addToCart = (product) => {
@@ -98,11 +91,13 @@ const Cromboloni = () => {
     localStorage.setItem("cartjajan", JSON.stringify(newCart));
   };
 
+  const [imageLoaded, setImageLoaded] = React.useState({});
+
   return (
     <>
       <Navbar />
       <section className="mt-12 px-5 lg:px-20 xl:px-30 2xl:px-60">
-      <h1 className="text-2xl lg:text-3xl xl:text-4xl font-bold">
+        <h1 className="text-2xl lg:text-3xl xl:text-4xl font-bold">
           <Link href="/Product" className="hover:text-gray-500">
             Product
           </Link>{" "}
@@ -115,10 +110,29 @@ const Cromboloni = () => {
               <Card key={product.id} className="flex justify-between">
                 <div>
                   <CardHeader floated={false}>
-                  {isLoading ? (
-                      <div className="skeleton h-48 lg:h-60 xl:h-80"></div>
+                    {isLoading ? (
+                      <div className="skeleton h-60 lg:h-64 xl:h-96"></div>
                     ) : (
-                      <img src={product.gambar} alt={product.nama} />
+                      <div className="relative">
+                        {!imageLoaded[product.id] && (
+                          <div className="skeleton h-60 lg:h-64 xl:h-96 absolute inset-0"></div>
+                        )}
+                        <img
+                          src={product.gambar}
+                          alt={product.nama}
+                          onLoad={() =>
+                            setImageLoaded((prev) => ({
+                              ...prev,
+                              [product.id]: true,
+                            }))
+                          }
+                          className={`transition-opacity ${
+                            imageLoaded[product.id]
+                              ? "opacity-100"
+                              : "opacity-0"
+                          }`}
+                        />
+                      </div>
                     )}
                   </CardHeader>
                   <CardBody className="text-center">

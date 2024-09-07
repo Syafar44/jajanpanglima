@@ -105,17 +105,17 @@ const Order = () => {
     };
 
     const request = new XMLHttpRequest();
-  request.open("POST", "/api/sendMessage", true); // Pastikan URL sudah benar
-  request.setRequestHeader("Content-Type", "application/json;charset=UTF-8");
-  request.onreadystatechange = function () {
-    if (request.readyState === 4 && request.status === 200) {
-      openModalSucces();
-    } else if (request.readyState === 4) {
-      openModalError();
-    }
+    request.open("POST", "/api/sendMessage", true); // Pastikan URL sudah benar
+    request.setRequestHeader("Content-Type", "application/json;charset=UTF-8");
+    request.onreadystatechange = function () {
+      if (request.readyState === 4 && request.status === 200) {
+        openModalSucces();
+      } else if (request.readyState === 4) {
+        openModalError();
+      }
+    };
+    request.send(JSON.stringify(data));
   };
-  request.send(JSON.stringify(data));
-};
 
   const rupiah = (number) => {
     return new Intl.NumberFormat("id-ID", {
@@ -174,9 +174,9 @@ const Order = () => {
                   {rupiah(product.harga * product.quantity)}
                 </p>
                 <IconButton variant="text" color="blue-gray" className="-mr-3">
-                  <button onClick={() => removeFromCart(product.id)}>
+                  <span onClick={() => removeFromCart(product.id)}>
                     <TrashIcon />
-                  </button>
+                  </span>
                 </IconButton>
               </ListItemSuffix>
             </ListItem>
@@ -265,14 +265,15 @@ const Order = () => {
           <dialog id="my_modal_1" className="modal">
             <div className="modal-box">
               <h3 className="font-bold text-xl text-kuning bg-hitam rounded-xl text-center py-2">
-                Hay Sobat Jajan
+                Hai Sobat Jajan
               </h3>
               <div className="py-4 font-semibold text-xl">
                 <h1 className="text-green-700 text-2xl font-bold">
                   Pesanan anda sudah terkirim!
                 </h1>
                 <strong className="text-red-600 text-lg">
-                  Pastikan nomer whatsapp anda aktif dan akan kami kirimkan pesan{" "}
+                  Pastikan nomer whatsapp anda aktif dan akan kami kirimkan
+                  pesan{" "}
                   <span className="font-bold text-green-700">KONFIRMASI</span>{" "}
                   paling Lambat 1 jam setelah pesanan ini dilakukan.
                 </strong>
@@ -290,7 +291,7 @@ const Order = () => {
           <dialog id="my_modal_2" className="modal">
             <div className="modal-box">
               <h3 className="font-bold text-xl text-kuning bg-hitam rounded-xl text-center py-2">
-                Hay Sobat Jajan
+                Hai Sobat Jajan
               </h3>
               <div className="py-4 font-semibold text-xl">
                 <h1 className="text-red-700 text-2xl">

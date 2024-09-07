@@ -25,19 +25,19 @@ const products = [
     id: 22,
     nama: "Pizza Beff",
     harga: 3000,
-    gambar: "../produk/pizza/Pizza Beff.png",
+    gambar: "../produk/pizza/Pizza Beef.JPG",
   },
   {
     id: 23,
     nama: "Pizza Chicken",
     harga: 3000,
-    gambar: "../produk/pizza/Pizza Chicken.png",
+    gambar: "../produk/pizza/Pizza Chicken.JPG",
   },
   {
     id: 24,
     nama: "Pizza Meat Lovers",
     harga: 3000,
-    gambar: "../produk/pizza/Pizza Meat Lovers.png",
+    gambar: "../produk/pizza/PizAa Meat Lovers.JPG",
   },
   {
     id: 25,
@@ -61,7 +61,7 @@ const products = [
     id: 28,
     nama: "Pizza Sosis",
     harga: 3000,
-    gambar: "../produk/pizza/Pizza Sosis.jpg",
+    gambar: "../produk/pizza/Sosis.JPG",
   },
 ];
 
@@ -109,6 +109,8 @@ const Pizza = () => {
     localStorage.setItem("cartjajan", JSON.stringify(newCart));
   };
 
+  const [imageLoaded, setImageLoaded] = React.useState({});
+
   return (
     <>
       <Navbar />
@@ -127,9 +129,28 @@ const Pizza = () => {
                 <div>
                   <CardHeader floated={false}>
                     {isLoading ? (
-                      <div className="skeleton h-48 lg:h-60 xl:h-80"></div>
+                      <div className="skeleton h-60 lg:h-64 xl:h-96"></div>
                     ) : (
-                      <img src={product.gambar} alt={product.nama} />
+                      <div className="relative">
+                        {!imageLoaded[product.id] && (
+                          <div className="skeleton h-60 lg:h-64 xl:h-96 absolute inset-0"></div>
+                        )}
+                        <img
+                          src={product.gambar}
+                          alt={product.nama}
+                          onLoad={() =>
+                            setImageLoaded((prev) => ({
+                              ...prev,
+                              [product.id]: true,
+                            }))
+                          }
+                          className={`transition-opacity ${
+                            imageLoaded[product.id]
+                              ? "opacity-100"
+                              : "opacity-0"
+                          }`}
+                        />
+                      </div>
                     )}
                   </CardHeader>
                   <CardBody className="text-center">

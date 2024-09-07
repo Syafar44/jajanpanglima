@@ -13,7 +13,7 @@ const About = () => {
   }, []);
 
   return (
-    <>
+    <div className="overflow-x-hidden">
       <Navbar />
       <section className="bg-putih dark:bg-gray-900 xl:-mt-32">
         <div className="relative flex lg:z-10">
@@ -225,7 +225,7 @@ const About = () => {
       </section>
       <Footer />
       <Wa />
-    </>
+    </div>
   );
 };
 

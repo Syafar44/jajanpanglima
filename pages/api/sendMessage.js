@@ -1,8 +1,4 @@
-const twilio = require("twilio");
-require("dotenv").config();
-const accountSid = process.env.TWILIO_ACCOUNT_SID; // SID akun Twilio
-const authToken = process.env.TWILIO_AUTH_TOKEN; // Token otentikasi Twilio
-const client = new twilio(accountSid, authToken);
+import fetch from "node-fetch"; // Pastikan Anda sudah menginstal node-fetch
 
 const rupiah = (number) => {
   return new Intl.NumberFormat("id-ID", {
@@ -11,10 +7,10 @@ const rupiah = (number) => {
   }).format(number);
 };
 
-export default async (req, res) => {
+export default async function handler(req, res) {
   if (req.method === "POST") {
     const { nama, nomer, total, metod, alamat, produk, pembayaran } = req.body;
-    let message = `*JAJAN PANGLIMA*\nNama Penerima: *${nama}.*\nNomer: ${nomer}\nAlamat: _${alamat}._\nProduk:\n`;
+    let message = `*JAJAN PANGLIMA*\nNama Penerima: *${nama}.*\nNomer: https://wa.me/${nomer}\nAlamat: _${alamat}._\nProduk:\n`;
     produk.forEach((item, index) => {
       message += `${index + 1}. Nama Produk: *${item.nama}*, Harga: ${rupiah(
         item.harga
@@ -22,20 +18,38 @@ export default async (req, res) => {
     });
     message += `\nPembayaran: *${pembayaran}*\nMetod: *${metod}* \nTotal Dibayar: *${total}*`;
 
-    try {
-      const msg = await client.messages.create({
-        body: message,
-        from: "whatsapp:+14155238886", // Nomor WhatsApp Twilio
-        to: "whatsapp:+6282250851457", // Nomor WhatsApp penerima
-      });
+    const chatId = process.env.TELEGRAM_CHAT_ID; // Ganti dengan ID chat Telegram Anda
+    const botToken = process.env.TELEGRAM_BOT_TOKEN; // Ganti dengan token bot Telegram Anda
 
-      res.status(200).json({ sid: msg.sid });
+    try {
+      const response = await fetch(
+        `https://api.telegram.org/bot${botToken}/sendMessage`,
+        {
+          method: "POST",
+          headers: {
+            "Content-Type": "application/json",
+          },
+          body: JSON.stringify({
+            chat_id: chatId,
+            text: message,
+            parse_mode: "Markdown", // Optional: untuk mendukung format Markdown
+          }),
+        }
+      );
+
+      const data = await response.json();
+
+      if (data.ok) {
+        res.status(200).json({ message_id: data.result.message_id });
+      } else {
+        res.status(500).json({ error: data.description });
+      }
     } catch (error) {
-      console.error("Twilio error:", error); // Logging error untuk debug
+      console.error("Telegram API error:", error); // Logging error untuk debug
       res.status(500).json({ error: error.message });
     }
   } else {
     res.setHeader("Allow", ["POST"]);
     res.status(405).end(`Method ${req.method} Not Allowed`);
   }
-};
+}

@@ -1,5 +1,6 @@
 "use client";
 import React, { useEffect, useState } from "react";
+
 import Navbar from "../../components/Navbar";
 import {
   Card,
@@ -151,6 +152,8 @@ const Gembung = () => {
     localStorage.setItem("cartjajan", JSON.stringify(newCart));
   };
 
+  const [imageLoaded, setImageLoaded] = React.useState({});
+
   return (
     <>
       <Navbar />
@@ -168,9 +171,26 @@ const Gembung = () => {
               <Card key={product.id}>
                 <CardHeader floated={false}>
                   {isLoading ? (
-                    <div className="skeleton h-48 lg:h-60 xl:h-80"></div>
+                    <div className="skeleton h-60 lg:h-64 xl:h-96"></div>
                   ) : (
-                    <img src={product.gambar} alt={product.nama} />
+                    <div className="relative">
+                      {!imageLoaded[product.id] && (
+                        <div className="skeleton h-60 lg:h-64 xl:h-96 absolute inset-0"></div>
+                      )}
+                      <img
+                        src={product.gambar}
+                        alt={product.nama}
+                        onLoad={() =>
+                          setImageLoaded((prev) => ({
+                            ...prev,
+                            [product.id]: true,
+                          }))
+                        }
+                        className={`transition-opacity ${
+                          imageLoaded[product.id] ? "opacity-100" : "opacity-0"
+                        }`}
+                      />
+                    </div>
                   )}
                 </CardHeader>
                 <CardBody className="text-center">
@@ -184,7 +204,7 @@ const Gembung = () => {
                     Rp{product.harga}
                   </Typography>
                 </CardBody>
-                <CardFooter className="flex justify-center -mt-10">
+                <CardFooter className="flex justify-center items-end -mt-10">
                   {cartItem ? (
                     cartItem.quantity > 0 ? (
                       <div className="flex transition ease-in-out gap-1 lg:gap-2 bg-kuning scale-[0.7] lg:scale-75 -mt-3 lg:-mt-2 -mb-3  lg:px-3 px-2 lg:mx-6 py-3 rounded-lg">

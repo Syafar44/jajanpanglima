@@ -7,8 +7,8 @@ import {
   CardBody,
   CardFooter,
   Typography,
-  Button, 
-  Chip
+  Button,
+  Chip,
 } from "@material-tailwind/react";
 import Footer from "../../components/Footer";
 import Wa from "@/app/components/Wa";
@@ -97,11 +97,13 @@ const Bakpia = () => {
     localStorage.setItem("cartjajan", JSON.stringify(newCart));
   };
 
+  const [imageLoaded, setImageLoaded] = React.useState({});
+
   return (
     <>
       <Navbar />
       <section className="mt-12 px-5 lg:px-20 xl:px-30 2xl:px-60">
-        <h1 className="text-2xl lg:text-3xl xl:text-4xl font-bold" >
+        <h1 className="text-2xl lg:text-3xl xl:text-4xl font-bold">
           <Link href="/Product" className="hover:text-gray-500">
             Product
           </Link>{" "}
@@ -115,9 +117,28 @@ const Bakpia = () => {
                 <div>
                   <CardHeader floated={false}>
                     {isLoading ? (
-                      <div className="skeleton h-48 lg:h-60 xl:h-80"></div>
+                      <div className="skeleton h-60 lg:h-64 xl:h-96"></div>
                     ) : (
-                      <img src={product.gambar} alt={product.nama} />
+                      <div className="relative">
+                        {!imageLoaded[product.id] && (
+                          <div className="skeleton h-60 lg:h-64 xl:h-96 absolute inset-0"></div>
+                        )}
+                        <img
+                          src={product.gambar}
+                          alt={product.nama}
+                          onLoad={() =>
+                            setImageLoaded((prev) => ({
+                              ...prev,
+                              [product.id]: true,
+                            }))
+                          }
+                          className={`transition-opacity ${
+                            imageLoaded[product.id]
+                              ? "opacity-100"
+                              : "opacity-0"
+                          }`}
+                        />
+                      </div>
                     )}
                   </CardHeader>
                   <CardBody className="text-center">

@@ -73,6 +73,8 @@ const Brownies = () => {
     localStorage.setItem("cartjajan", JSON.stringify(newCart));
   };
 
+  const [imageLoaded, setImageLoaded] = React.useState({});
+
   return (
     <>
       <Navbar />
@@ -91,9 +93,28 @@ const Brownies = () => {
                 <div>
                   <CardHeader floated={false}>
                     {isLoading ? (
-                      <div className="skeleton h-48 lg:h-60 xl:h-80"></div>
+                      <div className="skeleton h-60 lg:h-64 xl:h-96"></div>
                     ) : (
-                      <img src={product.gambar} alt={product.nama} />
+                      <div className="relative">
+                        {!imageLoaded[product.id] && (
+                          <div className="skeleton h-60 lg:h-64 xl:h-96 absolute inset-0"></div>
+                        )}
+                        <img
+                          src={product.gambar}
+                          alt={product.nama}
+                          onLoad={() =>
+                            setImageLoaded((prev) => ({
+                              ...prev,
+                              [product.id]: true,
+                            }))
+                          }
+                          className={`transition-opacity ${
+                            imageLoaded[product.id]
+                              ? "opacity-100"
+                              : "opacity-0"
+                          }`}
+                        />
+                      </div>
                     )}
                   </CardHeader>
                   <CardBody className="text-center">
