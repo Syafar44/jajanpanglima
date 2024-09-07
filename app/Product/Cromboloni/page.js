@@ -18,31 +18,31 @@ const products = [
   {
     id: 41,
     nama: "Cromboloni Capucino",
-    harga: 3000,
+    harga: 15000,
     gambar: "../produk/cromboloni/Cromboloni Capucino.jpg",
   },
   {
     id: 42,
     nama: "Cromboloni Coklat",
-    harga: 3000,
+    harga: 15000,
     gambar: "../produk/cromboloni/Cromboloni Coklat.jpg",
   },
   {
     id: 43,
     nama: "Cromboloni Stawberry",
-    harga: 3000,
+    harga: 15000,
     gambar: "../produk/cromboloni/Cromboloni Stawberry - Copy.jpg",
   },
   {
     id: 44,
     nama: "Cromboloni Tiramisu",
-    harga: 3000,
+    harga: 15000,
     gambar: "../produk/cromboloni/Cromboloni Tiramisu.jpg",
   },
   {
     id: 45,
     nama: "Cromboloni Vanilla",
-    harga: 3000,
+    harga: 15000,
     gambar: "../produk/cromboloni/Cromboloni Vanila.jpg",
   },
 ];

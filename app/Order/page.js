@@ -235,9 +235,33 @@ const Order = () => {
                     class="block appearance-none w-full bg-gray-200 border border-gray-200 text-gray-700 py-3 px-4 pr-8 rounded-md leading-tight focus:outline-none focus:bg-white focus:border-gray-500"
                     id="grid-state"
                   >
-                    <option value="outlet 1">Outlet 1</option>
-                    <option value="outlet 2">Outlet 2</option>
-                    <option value="outlet 3">Outlet 3</option>
+                    <option value="outlet jajan juanda">
+                      Outlet Jajan Juanda
+                    </option>
+                    <option value="outlet jajan suryanata">
+                      Outlet Jajan Suryanata
+                    </option>
+                    <option value="outlet jajan sempaja">
+                      Outlet Jajan Sempaja
+                    </option>
+                    <option value="outlet jajan lambung">
+                      Outlet Jajan Lambung
+                    </option>
+                    <option value="outlet jajan panjaitan">
+                      Outlet Jajan Panjaitan
+                    </option>
+                    <option value="outlet jajan sultan hasanudin">
+                      Outlet Jajan Sultan Hasanudin
+                    </option>
+                    <option value="outlet jajan sambutan">
+                      Outlet Jajan Sambutan
+                    </option>
+                    <option value="outlet jajan jakarta">
+                      Outlet Jajan Jakarta
+                    </option>
+                    <option value="outlet jajan bungtomo">
+                      Outlet Jajan Bungtomo
+                    </option>
                   </select>
                   <Input
                     type="time"

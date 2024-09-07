@@ -23,10 +23,10 @@ const Contact = () => {
     if (userName && userEmail && message) {
       emailjs
         .sendForm(
-          "service_idf5xe9",
-          "template_f18yjva",
+          "service_1fuvlhb",
+          "template_16e03bs",
           form.current,
-          "s-gUBrpAU8bY-veel"
+          "B8oVCTWwUh-g2gZ3Y"
         )
         .then(
           (result) => {
@@ -126,7 +126,7 @@ const Contact = () => {
             Hay Sobat Jajan
           </h3>
           <div className="py-4 font-semibold text-xl">
-            <h1 className="text-red-700 text-2xl">
+            <h1 className="text-green-700 text-2xl">
               Pesanan anda sudah kami terima!
             </h1>
             <p className="text-lg">

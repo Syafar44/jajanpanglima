@@ -18,19 +18,19 @@ const products = [
   {
     id: 61,
     nama: "Bolen Coklat",
-    harga: 3000,
+    harga: 8000,
     gambar: "../produk/bolen/Bolen Pisang Coklat.jpg",
   },
   {
     id: 62,
     nama: "Bolen Keju",
-    harga: 3000,
+    harga: 8000,
     gambar: "../produk/bolen/Bolen Pisang Keju.jpg",
   },
   {
     id: 63,
     nama: "Bolen Mix",
-    harga: 3000,
+    harga: 8000,
     gambar: "../produk/bolen/Bolen Pisang Mix.jpg",
   },
 ];

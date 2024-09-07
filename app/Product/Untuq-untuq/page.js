@@ -18,13 +18,13 @@ const products = [
   {
     id: 81,
     nama: "Untuq-Untuq Inti Kelapa",
-    harga: 3000,
+    harga: 2000,
     gambar: "../produk/untuq-untuq/Untuq Untuq inti Kelapa.jpg",
   },
   {
     id: 82,
     nama: "Untuq-Untuq Kacang Hijau",
-    harga: 3000,
+    harga: 2000,
     gambar: "../produk/untuq-untuq/Untuq Untuq Kacang,.jpg",
   },
   {

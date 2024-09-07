@@ -18,7 +18,7 @@ const products = [
   {
     id: 81,
     nama: "Roti Tawar",
-    harga: 3000,
+    harga: 15000,
     gambar: "../produk/roti tawar/Roti Tawar.jpg",
   },
 ];

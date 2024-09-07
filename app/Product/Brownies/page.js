@@ -18,13 +18,13 @@ const products = [
   {
     id: 71,
     nama: "Brownies Mini Satuan",
-    harga: 3000,
+    harga: 5000,
     gambar: "../produk/brownies/brownies mini satuan.jpg",
   },
   {
     id: 72,
     nama: "Brownies Mini Paket",
-    harga: 3000,
+    harga: 35000,
     gambar: "../produk/brownies/brwonies mini paket.jpg",
   },
 ];
