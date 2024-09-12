@@ -70,9 +70,9 @@ const About = () => {
                   data-aos-duration="1600"
                   data-aos-easing="ease-in-out"
                 >
-                  Menginspirasi Indonesia! Menjadi Perusahaan Syariah kelas
-                  dunia dicintai, berperan nyata dalam peradaban mulia dan
-                  mensejahterakan karyawan.
+                  Menginspirasi Indonesia! Menjadi Perusahaan Syariah Kelas
+                  Dunia Yang Dicintai, Berperan Dalam Peradaban Mulia, Dan
+                  Bermanfaat Bagi Semua.
                 </p>
                 <h3
                   className="text-3xl font-semibold mt-3"
@@ -89,8 +89,8 @@ const About = () => {
                   data-aos-easing="ease-in-out"
                 >
                   <li>
-                    Mengelola perusahaan murni sesuai syariat islam oleh
-                    individu yang saleh dengan standart kelas dunia
+                    Mengelola perusahaan Murni sesuai Syariat Islam oleh
+                    individu yang Saleh dengan standart Kelas Dunia
                   </li>
                   <li>
                     Menyediakan produk yang halal, berkualitas dan memberi nilai
@@ -98,6 +98,10 @@ const About = () => {
                   </li>
                   <li>
                     Menyebar manfaat serta berperan nyata dalam peradaban mulia
+                  </li>
+                  <li>
+                    Bertumbuh dengan Cepat dan Berkesinambungan sehingga dapat
+                    Semakin Bermanfaat Bagi Semua
                   </li>
                 </ul>
               </div>
@@ -126,88 +130,43 @@ const About = () => {
               Janan Panglima
             </h1>
 
-            <div className="lg:mt-10 lg:flex justify-between lg:items-center xl:ml-20">
+            <div className="lg:-mt-5 lg:flex justify-between lg:items-center">
               <div className="xl:px-10 lg:mt-0 text-gray-800">
-                <ul className="text-gray-800 text-lg lg:text-xl 2xl:text-2xl font-bold p-2">
+                <ul className="text-gray-800 text-lg lg:text-4xl 2xl:text-5xl font-bold p-2">
                   <li
                     data-aos="fade-right"
                     data-aos-duration="1000"
                     data-aos-easing="ease-in-out"
                   >
-                    <span className="text-3xl lg:text-4xl xl:text-5xl 2xl:text-6xl">
-                      P
-                    </span>
-                    roduktif diiringi inovasi
+                    Syar&apos;i
                   </li>
                   <li
                     data-aos="fade-right"
                     data-aos-duration="1300"
                     data-aos-easing="ease-in-out"
                   >
-                    <span className="text-3xl lg:text-4xl xl:text-5xl 2xl:text-6xl">
-                      R
-                    </span>
-                    asa saling menghormati
+                    Profesional
                   </li>
                   <li
                     data-aos="fade-right"
                     data-aos-duration="1500"
                     data-aos-easing="ease-in-out"
                   >
-                    <span className="text-3xl lg:text-4xl xl:text-5xl 2xl:text-6xl">
-                      O
-                    </span>
-                    ptimis
+                    Customer Centric
                   </li>
                   <li
                     data-aos="fade-right"
                     data-aos-duration="1700"
                     data-aos-easing="ease-in-out"
                   >
-                    <span className="text-3xl lg:text-4xl xl:text-5xl 2xl:text-6xl">
-                      G
-                    </span>
-                    esit & Tangguh
+                    Innovation
                   </li>
                   <li
                     data-aos="fade-right"
                     data-aos-duration="1900"
                     data-aos-easing="ease-in-out"
                   >
-                    <span className="text-3xl lg:text-4xl xl:text-5xl 2xl:text-6xl">
-                      R
-                    </span>
-                    asional & dapat diandalkan
-                  </li>
-                  <li
-                    data-aos="fade-right"
-                    data-aos-duration="2100"
-                    data-aos-easing="ease-in-out"
-                  >
-                    <span className="text-3xl lg:text-4xl xl:text-5xl 2xl:text-6xl">
-                      E
-                    </span>
-                    mpati melayani sepenuh hati
-                  </li>
-                  <li
-                    data-aos="fade-right"
-                    data-aos-duration="2300"
-                    data-aos-easing="ease-in-out"
-                  >
-                    <span className="text-3xl lg:text-4xl xl:text-5xl 2xl:text-6xl">
-                      S
-                    </span>
-                    mpati melayani sepenuh hati
-                  </li>
-                  <li
-                    data-aos="fade-right"
-                    data-aos-duration="2500"
-                    data-aos-easing="ease-in-out"
-                  >
-                    <span className="text-3xl lg:text-4xl xl:text-5xl 2xl:text-6xl">
-                      S
-                    </span>
-                    yar‘i
+                    Helpful
                   </li>
                 </ul>
               </div>

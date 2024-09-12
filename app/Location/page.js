@@ -13,6 +13,63 @@ import Wa from "../components/Wa";
 import AOS from "aos";
 import "aos/dist/aos.css";
 
+const outlets = [
+  {
+    id: 1,
+    namaOutlet: "Outlet Jajan Juanda",
+    lokasiOutlet: "https://maps.app.goo.gl/o1gBH83qrr8HCJaT7",
+    fotoOutlet: "bg-outlet-juanda",
+  },
+  {
+    id: 2,
+    namaOutlet: "Outlet Jajan Suryanata",
+    lokasiOutlet: "https://maps.app.goo.gl/ykuyPFRMXEE4C7zx8",
+    fotoOutlet: "bg-outlet-suryanata",
+  },
+  {
+    id: 3,
+    namaOutlet: "Outlet Jajan Sempaja",
+    lokasiOutlet: "https://maps.app.goo.gl/3oXoDrjL9mR5EsGKA",
+    fotoOutlet: "bg-outlet-sempaja",
+  },
+  {
+    id: 4,
+    namaOutlet: "Outlet Jajan Lambung",
+    lokasiOutlet: "https://maps.app.goo.gl/dgW1SthbqNjmi1Xy9",
+    fotoOutlet: "bg-outlet-lambung",
+  },
+  {
+    id: 5,
+    namaOutlet: "Outlet Jajan Panjaitan",
+    lokasiOutlet: "https://maps.app.goo.gl/bXLNLbJwBuJTAZQC8",
+    fotoOutlet: "bg-outlet-panjaitan",
+  },
+  {
+    id: 6,
+    namaOutlet: "Outlet Jajan Sultan Hasanudin",
+    lokasiOutlet: "https://maps.app.goo.gl/aA6ZbSRYjkt8swow8",
+    fotoOutlet: "bg-outlet-brimob",
+  },
+  {
+    id: 7,
+    namaOutlet: "Outlet Jajan Sambutan",
+    lokasiOutlet: "https://maps.app.goo.gl/MkHBYce4RM9981qY7",
+    fotoOutlet: "bg-outlet-sambutan",
+  },
+  {
+    id: 8,
+    namaOutlet: "Outlet Jajan Jakarta",
+    lokasiOutlet: "https://maps.app.goo.gl/MAXbKezx9zmdxhXV8",
+    fotoOutlet: "bg-outlet-jakarta",
+  },
+  {
+    id: 9,
+    namaOutlet: "Outlet Jajan Bungtomo",
+    lokasiOutlet: "",
+    fotoOutlet: "bg-outlet-bungtomo",
+  },
+];
+
 const Location = () => {
   useEffect(() => {
     AOS.init();
@@ -31,247 +88,41 @@ const Location = () => {
           Outlet Location
         </h1>
         <div className="grid grid-cols-2 lg:grid-cols-4 mt-6 gap-2 lg:gap-5">
-          <Link
-            data-aos="fade-up"
-            data-aos-duration="1200"
-            data-aos-easing="ease-in-out"
-            target="_blink"
-            href="https://maps.app.goo.gl/o1gBH83qrr8HCJaT7"
-            
-          >
-            <Card
-              shadow={false}
-              className="relative grid h-[15rem] xl:h-[17rem] 2xl:h-[20rem] w-full  items-end justify-center overflow-hidden text-center shadow-2xl hover:scale-105 ease-in-out transition"
-            >
-              <CardHeader
-                floated={false}
-                shadow={false}
-                color="transparent"
-                className="absolute inset-0 m-0 h-full w-full rounded-none bg-outlet bg-cover bg-center"
+          {outlets.map((outlet) => {
+            return (
+              <Link
+                key={outlet.id}
+                data-aos="fade-up"
+                data-aos-duration="1200"
+                data-aos-easing="ease-in-out"
+                target="_blink"
+                href={outlet.lokasiOutlet}
               >
-                <div className="to-bg-black-10 absolute inset-0 h-full w-full bg-gradient-to-t from-black/80 via-black/50" />
-              </CardHeader>
-              <CardBody className="relative py-14 px-6 md:px-12">
-                <Typography
-                  variant="h2"
-                  color="white"
-                  className="mb-6 leading-[1.5] font- text-base lg:text-xl -m-5"
+                <Card
+                  shadow={false}
+                  className="relative grid h-[15rem] xl:h-[17rem] 2xl:h-[20rem] w-full  items-end justify-center overflow-hidden text-center shadow-2xl hover:scale-105 ease-in-out transition"
                 >
-                  Outlet Jajan Juanda <br /> Tap open location
-                </Typography>
-              </CardBody>
-            </Card>
-          </Link>
-          <Link
-            data-aos="fade-up"
-            data-aos-duration="1400"
-            data-aos-easing="ease-in-out"
-            target="_blink"
-            href="https://maps.app.goo.gl/ykuyPFRMXEE4C7zx8"
-          >
-            <Card
-              shadow={false}
-              className="relative grid h-[15rem] xl:h-[17rem] 2xl:h-[20rem] w-full items-end justify-center overflow-hidden text-center shadow-2xl hover:scale-105 ease-in-out transition"
-            >
-              <CardHeader
-                floated={false}
-                shadow={false}
-                color="transparent"
-                className="absolute inset-0 m-0 h-full w-full rounded-none bg-outlet bg-cover bg-center"
-              >
-                <div className="to-bg-black-10 absolute inset-0 h-full w-full bg-gradient-to-t from-black/80 via-black/50" />
-              </CardHeader>
-              <CardBody className="relative py-14 px-6 md:px-12">
-                <Typography
-                  variant="h2"
-                  color="white"
-                  className="mb-6 leading-[1.5] font- text-base lg:text-xl -m-5 "
-                >
-                  Outlet Jajan Suryanata <br /> Tap open location
-                </Typography>
-              </CardBody>
-            </Card>
-          </Link>
-          <Link
-            data-aos="fade-up"
-            data-aos-duration="1600"
-            data-aos-easing="ease-in-out"
-            target="_blink"
-            href="https://maps.app.goo.gl/3oXoDrjL9mR5EsGKA"
-          >
-            <Card
-              shadow={false}
-              className="relative grid h-[15rem] xl:h-[17rem] 2xl:h-[20rem] w-full items-end justify-center overflow-hidden text-center shadow-2xl hover:scale-105 ease-in-out transition"
-            >
-              <CardHeader
-                floated={false}
-                shadow={false}
-                color="transparent"
-                className="absolute inset-0 m-0 h-full w-full rounded-none bg-outlet bg-cover bg-center"
-              >
-                <div className="to-bg-black-10 absolute inset-0 h-full w-full bg-gradient-to-t from-black/80 via-black/50" />
-              </CardHeader>
-              <CardBody className="relative py-14 px-6 md:px-12">
-                <Typography
-                  variant="h2"
-                  color="white"
-                  className="mb-6 leading-[1.5] font- text-base lg:text-xl -m-5"
-                >
-                  Outlet Jajan Sempaja <br /> Tap open location
-                </Typography>
-              </CardBody>
-            </Card>
-          </Link>
-          <Link
-            data-aos="fade-up"
-            data-aos-duration="1800"
-            data-aos-easing="ease-in-out"
-            target="_blink"
-            href="https://maps.app.goo.gl/dgW1SthbqNjmi1Xy9"
-          >
-            <Card
-              shadow={false}
-              className="relative grid h-[15rem] xl:h-[17rem] 2xl:h-[20rem] w-full items-end justify-center overflow-hidden text-center shadow-2xl hover:scale-105 ease-in-out transition"
-            >
-              <CardHeader
-                floated={false}
-                shadow={false}
-                color="transparent"
-                className="absolute inset-0 m-0 h-full w-full rounded-none bg-outlet bg-cover bg-center"
-              >
-                <div className="to-bg-black-10 absolute inset-0 h-full w-full bg-gradient-to-t from-black/80 via-black/50" />
-              </CardHeader>
-              <CardBody className="relative py-14 px-6 md:px-12">
-                <Typography
-                  variant="h2"
-                  color="white"
-                  className="mb-6 leading-[1.5] font- text-base lg:text-xl -m-5"
-                >
-                  Outlet Jajan Lambung <br /> Tap open location
-                </Typography>
-              </CardBody>
-            </Card>
-          </Link>
-          <Link
-            data-aos="fade-up"
-            data-aos-duration="2000"
-            data-aos-easing="ease-in-out"
-            target="_blink"
-            href="https://maps.app.goo.gl/bXLNLbJwBuJTAZQC8"
-          >
-            <Card
-              shadow={false}
-              className="relative grid h-[15rem] xl:h-[17rem] 2xl:h-[20rem] w-full items-end justify-center overflow-hidden text-center shadow-2xl hover:scale-105 ease-in-out transition"
-            >
-              <CardHeader
-                floated={false}
-                shadow={false}
-                color="transparent"
-                className="absolute inset-0 m-0 h-full w-full rounded-none bg-outlet bg-cover bg-center"
-              >
-                <div className="to-bg-black-10 absolute inset-0 h-full w-full bg-gradient-to-t from-black/80 via-black/50" />
-              </CardHeader>
-              <CardBody className="relative py-14 px-6 md:px-12">
-                <Typography
-                  variant="h2"
-                  color="white"
-                  className="mb-6 leading-[1.5] font- text-base lg:text-xl -m-5"
-                >
-                  Outlet Jajan Panjaitan <br /> Tap open location
-                </Typography>
-              </CardBody>
-            </Card>
-          </Link>
-          <Link
-            data-aos="fade-up"
-            data-aos-duration="2200"
-            data-aos-easing="ease-in-out"
-            target="_blink"
-            href="https://maps.app.goo.gl/aA6ZbSRYjkt8swow8"
-          >
-            <Card
-              shadow={false}
-              className="relative grid h-[15rem] xl:h-[17rem] 2xl:h-[20rem] w-full items-end justify-center overflow-hidden text-center shadow-2xl hover:scale-105 ease-in-out transition"
-            >
-              <CardHeader
-                floated={false}
-                shadow={false}
-                color="transparent"
-                className="absolute inset-0 m-0 h-full w-full rounded-none bg-outlet bg-cover bg-center"
-              >
-                <div className="to-bg-black-10 absolute inset-0 h-full w-full bg-gradient-to-t from-black/80 via-black/50" />
-              </CardHeader>
-              <CardBody className="relative py-14 px-6 md:px-12">
-                <Typography
-                  variant="h2"
-                  color="white"
-                  className="mb-6 leading-[1.5] font- text-base lg:text-xl -m-5"
-                >
-                  Outlet Jajan Sultan Hasanudin <br /> Tap open location
-                </Typography>
-              </CardBody>
-            </Card>
-          </Link>
-          <Link
-            data-aos="fade-up"
-            data-aos-duration="2400"
-            data-aos-easing="ease-in-out"
-            target="_blink"
-            href="https://maps.app.goo.gl/MkHBYce4RM9981qY7"
-          >
-            <Card
-              shadow={false}
-              className="relative grid h-[15rem] xl:h-[17rem] 2xl:h-[20rem] w-full items-end justify-center overflow-hidden text-center shadow-2xl hover:scale-105 ease-in-out transition"
-            >
-              <CardHeader
-                floated={false}
-                shadow={false}
-                color="transparent"
-                className="absolute inset-0 m-0 h-full w-full rounded-none bg-outlet bg-cover bg-center"
-              >
-                <div className="to-bg-black-10 absolute inset-0 h-full w-full bg-gradient-to-t from-black/80 via-black/50" />
-              </CardHeader>
-              <CardBody className="relative py-14 px-6 md:px-12">
-                <Typography
-                  variant="h2"
-                  color="white"
-                  className="mb-6 leading-[1.5] font- text-base lg:text-xl -m-5"
-                >
-                  Outlet Jajan Sambutan <br /> Tap open location
-                </Typography>
-              </CardBody>
-            </Card>
-          </Link>
-          <Link
-            data-aos="fade-up"
-            data-aos-duration="2600"
-            data-aos-easing="ease-in-out"
-            target="_blink"
-            href="https://maps.app.goo.gl/MAXbKezx9zmdxhXV8"
-          >
-            <Card
-              shadow={false}
-              className="relative grid h-[15rem] xl:h-[17rem] 2xl:h-[20rem] w-full items-end justify-center overflow-hidden text-center shadow-2xl hover:scale-105 ease-in-out transition"
-            >
-              <CardHeader
-                floated={false}
-                shadow={false}
-                color="transparent"
-                className="absolute inset-0 m-0 h-full w-full rounded-none bg-outlet bg-cover bg-center"
-              >
-                <div className="to-bg-black-10 absolute inset-0 h-full w-full bg-gradient-to-t from-black/80 via-black/50" />
-              </CardHeader>
-              <CardBody className="relative py-14 px-6 md:px-12">
-                <Typography
-                  variant="h2"
-                  color="white"
-                  className="mb-6 leading-[1.5] font-teko text-base lg:text-xl -m-5"
-                >
-                  Outlet Jajan Jakarta <br /> Tap open location
-                </Typography>
-              </CardBody>
-            </Card>
-          </Link>
+                  <CardHeader
+                    floated={false}
+                    shadow={false}
+                    color="transparent"
+                    className={`absolute inset-0 m-0 h-full w-full rounded-none ${outlet.fotoOutlet} bg-cover bg-center`}
+                  >
+                    <div className="to-bg-black-10 absolute inset-0 h-full w-full bg-gradient-to-t from-black/80 via-black/50" />
+                  </CardHeader>
+                  <CardBody className="relative py-14 px-6 md:px-12">
+                    <Typography
+                      variant="h2"
+                      color="white"
+                      className="mb-6 leading-[1.5] font- text-base lg:text-xl -m-5"
+                    >
+                      {outlet.namaOutlet} <br /> Tap open location
+                    </Typography>
+                  </CardBody>
+                </Card>
+              </Link>
+            );
+          })}
         </div>
       </section>
       <Footer />

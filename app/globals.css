@@ -6,6 +6,34 @@
     background-image: url(../public/tes-5.jpg);
 }
 
-.bg-outlet{
-    background-image: url(../public/outlet-jajan.jpg);
+.bg-outlet-juanda{
+    background-image: url(../public/outlet/outlet-jajan.jpg);
+}
+
+.bg-outlet-jakarta{
+    background-image: url(../public/outlet/jakarta.jpg);
+}
+
+.bg-outlet-lambung{
+    background-image: url(../public/outlet/lambung.png);
+}
+
+.bg-outlet-brimob{
+    background-image: url(../public/outlet/brimob.jpg);
+}
+
+.bg-outlet-sempaja{
+    background-image: url(../public/outlet/sempaja.png);
+}
+
+.bg-outlet-suryanata{
+    background-image: url(../public/outlet/suryanata.png);
+}
+
+.bg-outlet-bungtomo{
+    background-image: url(../public/outlet/bungtomo.jpg);
+}
+
+.bg-outlet-sambutan{
+    background-image: url(../public/outlet/sambutan.jpg);
 }

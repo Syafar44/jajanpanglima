@@ -43,7 +43,7 @@ const Contact = () => {
   };
 
   return (
-    <>
+    <div className="overflow-x-hidden">
       <Navbar />
       <section className="flex mx-auto lg:mt-10 xl:mt-20 lg:mb-32">
         <div className="flex flex-col lg:justify-center px-6 lg:px-20 py-4 mx-auto space-y-6 lg:h-[32rem] xl:py-16 lg:flex-row lg:items-center z-20 bg-white w-full">
@@ -62,11 +62,11 @@ const Contact = () => {
               <div className="lg:flex gap-10 ml-3">
                 <div className="flex lg:block gap-2 text-lg font-medium text-gray-700">
                   <h1>Chat:</h1>
-                  <h1>+62 822 5085 1457</h1>
+                  <h1>08 222 000 2237 </h1>
                 </div>
                 <div className="flex lg:block gap-2 text-lg font-medium text-gray-700">
                   <h1>Email:</h1>
-                  <h1>Panglima@panglima.com</h1>
+                  <h1>gembungpanglima@gmail.com</h1>
                 </div>
               </div>
 
@@ -130,7 +130,8 @@ const Contact = () => {
               Pesanan anda sudah kami terima!
             </h1>
             <p className="text-lg">
-              Terimakasih atas kritik dan masukannya akan kami kirim balasan secepatnya
+              Terimakasih atas kritik dan masukannya akan kami kirim balasan
+              secepatnya
             </p>
             <h3 className="mt-5">Terimakasih.</h3>
           </div>
@@ -145,7 +146,7 @@ const Contact = () => {
       </dialog>
       <Footer />
       <Wa />
-    </>
+    </div>
   );
 };
 

@@ -132,7 +132,7 @@ const Order = () => {
     (metod !== "Ambil di tempat" || pickupTime); // Menambahkan pengecekan untuk jam pengambilan
 
   return (
-    <>
+    <div className="overflow-x-hidden">
       <Navbar />
       <Card className="lg:mx-20 xl:mx-52 2xl:mx-96">
         <div className="p-5 lg:py-10 mb-2 bg-hitam flex justify-between text-putih font-bold lg:px-7">
@@ -213,7 +213,7 @@ const Order = () => {
                 label="Metode Pengiriman"
                 value={metod}
                 onChange={(e) => setMetod(e.target.value)}
-                class="block appearance-none w-full bg-gray-200 border border-gray-200 text-gray-700 py-3 px-4 pr-8 rounded-md leading-tight focus:outline-none focus:bg-white focus:border-gray-500"
+                className="block appearance-none w-full bg-gray-200 border border-gray-200 text-gray-700 py-3 px-4 pr-8 rounded-md leading-tight focus:outline-none focus:bg-white focus:border-gray-500"
                 id="grid-state"
               >
                 <option value="ambil di tempat">Ambil di tempat</option>
@@ -232,7 +232,7 @@ const Order = () => {
                     label="Pilih Outlet"
                     value={outlet}
                     onChange={(e) => setOutlet(e.target.value)}
-                    class="block appearance-none w-full bg-gray-200 border border-gray-200 text-gray-700 py-3 px-4 pr-8 rounded-md leading-tight focus:outline-none focus:bg-white focus:border-gray-500"
+                    className="block appearance-none w-full bg-gray-200 border border-gray-200 text-gray-700 py-3 px-4 pr-8 rounded-md leading-tight focus:outline-none focus:bg-white focus:border-gray-500"
                     id="grid-state"
                   >
                     <option value="outlet jajan juanda">
@@ -279,7 +279,7 @@ const Order = () => {
               label="Metode Pembayaran"
               value={paymentMethod}
               onChange={(e) => setPaymentMethod(e.target.value)}
-              class="block appearance-none w-full bg-gray-200 border border-gray-200 text-gray-700 py-3 px-4 pr-8 rounded-md leading-tight focus:outline-none focus:bg-white focus:border-gray-500"
+              className="block appearance-none w-full bg-gray-200 border border-gray-200 text-gray-700 py-3 px-4 pr-8 rounded-md leading-tight focus:outline-none focus:bg-white focus:border-gray-500"
               id="grid-state"
             >
               <option value="transfer bank">Transfer bank</option>
@@ -300,7 +300,7 @@ const Order = () => {
       </Card>
       <Wa />
       <Footer />
-    </>
+    </div>
   );
 };
 
