@@ -13,9 +13,9 @@ const About = () => {
   }, []);
 
   return (
-    <div className="overflow-x-hidden">
+    <>
       <Navbar />
-      <section className="bg-putih dark:bg-gray-900 xl:-mt-32">
+      <section className="bg-putih dark:bg-gray-900 xl:-mt-32  overflow-x-hidden">
         <div className="relative flex lg:z-10">
           <div className="lg:min-h-screen lg:w-1/3"></div>
           <div className="hidden w-3/4 min-h-screen bg-gray-100 dark:bg-gray-800 lg:block"></div>
@@ -110,7 +110,7 @@ const About = () => {
         </div>
       </section>
 
-      <section className="bg-putih dark:bg-gray-900 xl:-mt-36 2xl:-mt-72 -mt-10 -mb-10 z-20">
+      <section className="bg-putih dark:bg-gray-900 xl:-mt-36 2xl:-mt-72 -mt-10 -mb-10 z-20  overflow-x-hidden">
         <div className="relative flex">
           <div className="min-h-screen lg:w-1/3"></div>
           <div className="hidden w-3/4 min-h-screen bg-gray-100 dark:bg-gray-800 lg:block"></div>
@@ -172,7 +172,7 @@ const About = () => {
               </div>
               <img
                 className="object-cover object-center 2xl:ml-40 w-full lg:w-[30rem] 2xl:w-[32rem] rounded-lg h-96"
-                src="outlet-jajan.jpg"
+                src="./outlet/outlet-jajan.jpg"
                 alt="outlet juanda"
                 data-aos="fade-left"
                 data-aos-duration="2000"
@@ -184,7 +184,7 @@ const About = () => {
       </section>
       <Footer />
       <Wa />
-    </div>
+    </>
   );
 };
 

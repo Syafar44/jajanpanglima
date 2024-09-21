@@ -43,7 +43,7 @@ const Contact = () => {
   };
 
   return (
-    <div className="overflow-x-hidden">
+    <>
       <Navbar />
       <section className="flex mx-auto lg:mt-10 xl:mt-20 lg:mb-32">
         <div className="flex flex-col lg:justify-center px-6 lg:px-20 py-4 mx-auto space-y-6 lg:h-[32rem] xl:py-16 lg:flex-row lg:items-center z-20 bg-white w-full">
@@ -146,7 +146,7 @@ const Contact = () => {
       </dialog>
       <Footer />
       <Wa />
-    </div>
+    </>
   );
 };
 

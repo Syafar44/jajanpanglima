@@ -2,6 +2,11 @@
 @tailwind components;
 @tailwind utilities;
 
+body{
+    background-color: #ffffff;
+    color: #333333;
+}
+
 .bg-tes{
     background-image: url(../public/tes-5.jpg);
 }

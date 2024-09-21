@@ -132,60 +132,64 @@ const Order = () => {
     (metod !== "Ambil di tempat" || pickupTime); // Menambahkan pengecekan untuk jam pengambilan
 
   return (
-    <div className="overflow-x-hidden">
+    <>
       <Navbar />
-      <Card className="lg:mx-20 xl:mx-52 2xl:mx-96">
-        <div className="p-5 lg:py-10 mb-2 bg-hitam flex justify-between text-putih font-bold lg:px-7">
-          <h1 className="text-sm lg:text-base">Produk</h1>
-          <div className="flex gap-2 text-sm lg:text-base lg:gap-12">
-            <h1>Harga Satuan</h1>
-            <h1 className="lg:px-14 px-2">Jumlah</h1>
-            <h1>Total Harga</h1>
-            <h1>Aksi</h1>
-          </div>
-        </div>
-        <List>
-          {cart.map((product, index) => (
-            <ListItem
-              className={`${teko.className} py-1 lg:pl-4`}
-              key={index}
-              ripple={false}
-            >
-              <h2 className="font-bold text-sm lg:text-xl">{product.nama}</h2>
-              <ListItemSuffix className="flex lg:gap-10">
-                <p className="text-sm lg:text-xl">{rupiah(product.harga)}</p>
-                <div className="flex gap-1 lg:gap-2 bg-kuning scale-[0.6] lg:scale-100 lg:px-3 lg:mx-6 py-2 rounded-lg -mx-4">
-                  <Button
-                    className="px-4"
-                    onClick={() => decreaseQuantity(product.id)}
-                  >
-                    -
-                  </Button>
-                  <Chip
-                    value={product.quantity}
-                    variant="ghost"
-                    size="lg"
-                    className="rounded-lg"
-                  />
-                  <Button
-                    className="px-4"
-                    onClick={() => increaseQuantity(product.id)}
-                  >
-                    +
-                  </Button>
-                </div>
-                <p className="text-sm lg:text-xl">
+      <Card className="lg:mx-20 xl:mx-52 2xl:mx-96 mt-10 overflow-x-hidden">
+        <table className="font-bold text-sm lg:text-lg">
+          <thead className="bg-black text-white h-20">
+            <tr>
+              <th className="text-sm lg:text-base py-5">Produk</th>
+              <th className="text-sm lg:text-base hidden lg:flex justify-center mt-7">
+                Harga Satuan
+              </th>
+              <th className="text-sm lg:text-base">Jumlah</th>
+              <th className="text-sm lg:text-base">Total Harga</th>
+              <th className="text-sm lg:text-base">Aksi</th>
+            </tr>
+          </thead>
+          <tbody>
+            {cart.map((product, index) => (
+              <tr key={index}>
+                <td className="pl-5 lg:text-xl">{product.nama}</td>
+                <td className="text-center p-2 hidden lg:block">
+                  {rupiah(product.harga)}
+                </td>
+                <td>
+                  <div className="flex justify-center scale-75 lg:scale-100">
+                    <Button
+                      className="px-4 bg-white text-black hover:bg-kuning  hover:border-kuning border"
+                      onClick={() => decreaseQuantity(product.id)}
+                    >
+                      -
+                    </Button>
+                    <Chip
+                      value={product.quantity}
+                      variant="ghost"
+                      size="lg"
+                      className="rounded-lg bg-white"
+                    />
+                    <Button
+                      className="px-4 bg-white text-black hover:bg-kuning  hover:border-kuning border"
+                      onClick={() => increaseQuantity(product.id)}
+                    >
+                      +
+                    </Button>
+                  </div>
+                </td>
+                <td className="text-center p-2">
                   {rupiah(product.harga * product.quantity)}
-                </p>
-                <IconButton variant="text" color="blue-gray" className="-mr-3">
-                  <span onClick={() => removeFromCart(product.id)}>
-                    <TrashIcon />
-                  </span>
-                </IconButton>
-              </ListItemSuffix>
-            </ListItem>
-          ))}
-        </List>
+                </td>
+                <td className="text-center p-2">
+                  <IconButton variant="text">
+                    <span onClick={() => removeFromCart(product.id)}>
+                      <TrashIcon />
+                    </span>
+                  </IconButton>
+                </td>
+              </tr>
+            ))}
+          </tbody>
+        </table>
         <div className="py-5 bg-hitam flex justify-between text-putih font-bold p-7">
           <h1>Total Harga Keseluruhan</h1>
           <h1 className="text-kuning">{rupiah(calculateTotal())}</h1>
@@ -300,7 +304,7 @@ const Order = () => {
       </Card>
       <Wa />
       <Footer />
-    </div>
+    </>
   );
 };
 

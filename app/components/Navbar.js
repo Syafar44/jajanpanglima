@@ -58,6 +58,12 @@ const Navbar = () => {
             </Link>
             <Link
               className="px-6 py-2 rounded-lg flex items-center text-hitam hover:shadow-[inset_-2px_-2px_5px_rgba(255,_255,_255,_1),inset_2px_2px_4px_rgba(0,_0,_0,_0.3)] transition duration-300 ease-linear "
+              href="/Gallery"
+            >
+              GALLERY
+            </Link>
+            <Link
+              className="px-6 py-2 rounded-lg flex items-center text-hitam hover:shadow-[inset_-2px_-2px_5px_rgba(255,_255,_255,_1),inset_2px_2px_4px_rgba(0,_0,_0,_0.3)] transition duration-300 ease-linear "
               href="/Contact"
             >
               CONTACT
@@ -100,6 +106,12 @@ const Navbar = () => {
               href="/Location"
             >
               LOCATION
+            </Link>
+            <Link
+              className="px-6 py-2 rounded-lg flex items-center text-hitam hover:shadow-[inset_-2px_-2px_5px_rgba(255,_255,_255,_1),inset_2px_2px_4px_rgba(0,_0,_0,_0.3)] transition duration-300 ease-linear "
+              href="/Career"
+            >
+              CAREER
             </Link>
           </div>
         </div>

@@ -123,6 +123,7 @@ const products = [
 const Gembung = () => {
   const [cart, setCart] = useState([]);
   const [isLoading, setIsLoading] = useState(true);
+  const [imageLoaded, setImageLoaded] = React.useState({});
 
   useEffect(() => {
     const savedCart = JSON.parse(localStorage.getItem("cartjajan")) || [];
@@ -164,7 +165,7 @@ const Gembung = () => {
     localStorage.setItem("cartjajan", JSON.stringify(newCart));
   };
 
-  const [imageLoaded, setImageLoaded] = React.useState({});
+
 
   return (
     <>

@@ -11,9 +11,9 @@ const Jajan = () => {
   }, []);
 
   return (
-    <div className="overflow-x-hidden lg:overflow-x-visible">
+    <main className="overflow-x-hidden lg:overflow-x-visible">
       {/* Carausel layar Lebar */}
-      <section className="container mx-auto py-16 -mt-6 hidden lg:block lg:h-[580px] xl:h-[700px] 2xl:h-[800px]">
+      <section className="container mx-auto py-16 -mt-6 hidden lg:block lg:h-[580px] xl:h-[700px] 2xl:h-[800px] ">
         <Carousel loop={true} autoplay={true} className="rounded-xl">
           <img
             src="1.png"
@@ -135,7 +135,7 @@ const Jajan = () => {
           </div>
         </div>
       </section>
-    </div>
+    </main>
   );
 };
 

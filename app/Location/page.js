@@ -42,7 +42,7 @@ const outlets = [
     id: 5,
     namaOutlet: "Outlet Jajan Panjaitan",
     lokasiOutlet: "https://maps.app.goo.gl/bXLNLbJwBuJTAZQC8",
-    fotoOutlet: "bg-outlet-panjaitan",
+    fotoOutlet: "bg-outlet-lambung",
   },
   {
     id: 6,
@@ -76,9 +76,9 @@ const Location = () => {
   }, []);
 
   return (
-    <div className="overflow-x-hidden">
+    <>
       <Navbar />
-      <section className="mt-10 mx-5 lg:px-20 2xl:px-52">
+      <section className="mt-10 mx-5 lg:px-20 2xl:px-52 overflow-x-hidden">
         <h1
           className="text-3xl lg:text-5xl font-bold"
           data-aos="fade-left"
@@ -127,7 +127,7 @@ const Location = () => {
       </section>
       <Footer />
       <Wa />
-    </div>
+    </>
   );
 };
 

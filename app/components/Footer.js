@@ -146,10 +146,10 @@ const Footer = () => {
               <div>
                 <h3 className="text-gray-700 uppercase dark:text-white">Contact</h3>
                 <span className="block mt-2 text-sm text-hitam dark:text-gray-400 hover:underline">
-                  +62 822 5085 1457
+                08 222 000 2237
                 </span>
                 <span className="block mt-2 text-sm text-hitam dark:text-gray-400 hover:underline">
-                  panglima@panglima.com
+                gembungpanglima@gmail.com
                 </span>
               </div>
             </div>
