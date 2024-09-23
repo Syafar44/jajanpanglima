@@ -90,7 +90,7 @@ const Navbar = () => {
                   href="/Order"
                   className="px-6 py-2 bg-hitam rounded-lg flex items-center text-putih hover:shadow-[inset_2px_2px_4px_rgba(255,_255,_255,_1),inset_-2px_-2px_5px_rgba(255,_255,_255,_0.3)] transition duration-300 ease-linear "
                 >
-                  Order
+                  🛒 ORDER
                 </Link>
               </Badge>
             ) : (
@@ -98,7 +98,7 @@ const Navbar = () => {
                 href="/Order"
                 className="px-6 py-2 bg-hitam rounded-lg flex items-center text-putih hover:shadow-[inset_2px_2px_4px_rgba(255,_255,_255,_1),inset_-2px_-2px_5px_rgba(255,_255,_255,_0.3)] transition duration-300 ease-linear "
               >
-                Order
+                🛒 ORDER
               </Link>
             )}
             <Link
@@ -146,12 +146,12 @@ const Navbar = () => {
                     {totalItems > 0 ? (
                       <Badge className="-right-3" content={totalItems}>
                         <Link href="/Order" className="">
-                          Order
+                          🛒 ORDER
                         </Link>
                       </Badge>
                     ) : (
                       <Link href="/Order" className="">
-                        Order
+                        🛒 ORDER
                       </Link>
                     )}
                   </div>
@@ -175,7 +175,6 @@ const Navbar = () => {
                         onClick={() => handleOpen(1)}
                         className="border-b-0 p-3"
                       >
-                      
                         <Typography
                           color="blue-gray"
                           className="mr-auto font-normal"
@@ -284,12 +283,12 @@ const Navbar = () => {
             {totalItems > 0 ? (
               <Badge className="-right-3" content={totalItems}>
                 <Link href="/Order" className="">
-                  Order
+                  🛒 ORDER
                 </Link>
               </Badge>
             ) : (
               <Link href="/Order" className="">
-                Order
+                🛒 ORDER
               </Link>
             )}
           </div>

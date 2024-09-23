@@ -78,7 +78,7 @@ const Location = () => {
   return (
     <>
       <Navbar />
-      <section className="mt-10 mx-5 lg:px-20 2xl:px-52 overflow-x-hidden">
+      <section className="mt-10 mx-5 lg:px-20 2xl:px-52 overflow-x-hidden lg:overflow-x-visible">
         <h1
           className="text-3xl lg:text-5xl font-bold"
           data-aos="fade-left"
