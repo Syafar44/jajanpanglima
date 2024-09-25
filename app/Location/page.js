@@ -87,7 +87,7 @@ const Location = () => {
         >
           Outlet Location
         </h1>
-        <div className="grid grid-cols-2 lg:grid-cols-4 mt-6 gap-2 lg:gap-5">
+        <div className="grid grid-cols-2 lg:grid-cols-3 mt-6 gap-2 lg:gap-5">
           {outlets.map((outlet) => {
             return (
               <Link

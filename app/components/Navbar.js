@@ -22,6 +22,133 @@ import {
   XMarkIcon,
 } from "@heroicons/react/24/outline";
 
+const link1 = [
+  {
+    id: 1,
+    title: "HOME",
+    link: "/",
+  },
+  {
+    id: 2,
+    title: "ABOUT",
+    link: "/About",
+  },
+  {
+    id: 3,
+    title: "GALLERY",
+    link: "/Gallery",
+  },
+  {
+    id: 4,
+    title: "CONTACT",
+    link: "/Contact",
+  },
+];
+
+const link2 = [
+  {
+    id: 5,
+    title: "PRODUCT",
+    link: "/Product",
+  },
+  {
+    id: 6,
+    title: "LOCATION",
+    link: "/Location",
+  },
+  {
+    id: 7,
+    title: "CAREER",
+    link: "/Career",
+  },
+];
+
+const produkList = [
+  {
+    id: 1,
+    title: "All",
+    link: "/Product",
+  },
+  {
+    id: 2,
+    title: "Roti Gembung",
+    link: "/Product/Gembung",
+  },
+  {
+    id: 3,
+    title: "Pizza",
+    link: "/Product/Pizza",
+  },
+  {
+    id: 4,
+    title: "Bakpia",
+    link: "/Product/Bakpia",
+  },
+  {
+    id: 5,
+    title: "Cromboloni",
+    link: "/Product/Cromboloni",
+  },
+  {
+    id: 6,
+    title: "Donat",
+    link: "/Product/Donat",
+  },
+  {
+    id: 7,
+    title: "Brownies",
+    link: "/Product/Brownies",
+  },
+  {
+    id: 8,
+    title: "Bolen",
+    link: "/Product/Bolen",
+  },
+  {
+    id: 9,
+    title: "Roti Tawar",
+    link: "/Product/Roti-tawar",
+  },
+  {
+    id: 10,
+    title: "Untuq-untuq",
+    link: "/Product/Untuq-untuq",
+  },
+];
+
+const pages = [
+  {
+    id: 1,
+    title: "Home",
+    link: "/",
+  },
+  {
+    id: 2,
+    title: "About",
+    link: "/About",
+  },
+  {
+    id: 3,
+    title: "Gallery",
+    link: "/Gallery",
+  },
+  {
+    id: 4,
+    title: "Contact",
+    link: "/Contact",
+  },
+  {
+    id: 6,
+    title: "Location",
+    link: "/Location",
+  },
+  {
+    id: 7,
+    title: "Career",
+    link: "/Career",
+  },
+];
+
 const Navbar = () => {
   const [open, setOpen] = React.useState(0);
   const [isDrawerOpen, setIsDrawerOpen] = React.useState(false);
@@ -41,33 +168,21 @@ const Navbar = () => {
 
   return (
     <>
+      {/* Desktop */}
       <nav className="hidden lg:block lg:px-8 lg:py-4 bg-kuning sticky top-0 z-50">
         <div className="flex justify-center gap-20 font-bold">
           <div className="flex items-center gap-5">
-            <Link
-              className="px-6 py-2 rounded-lg flex items-center text-hitam hover:shadow-[inset_-2px_-2px_5px_rgba(255,_255,_255,_1),inset_2px_2px_4px_rgba(0,_0,_0,_0.3)] transition duration-300 ease-linear "
-              href="/"
-            >
-              HOME
-            </Link>
-            <Link
-              className="px-6 py-2 rounded-lg flex items-center text-hitam hover:shadow-[inset_-2px_-2px_5px_rgba(255,_255,_255,_1),inset_2px_2px_4px_rgba(0,_0,_0,_0.3)] transition duration-300 ease-linear "
-              href="/About"
-            >
-              ABOUTE
-            </Link>
-            <Link
-              className="px-6 py-2 rounded-lg flex items-center text-hitam hover:shadow-[inset_-2px_-2px_5px_rgba(255,_255,_255,_1),inset_2px_2px_4px_rgba(0,_0,_0,_0.3)] transition duration-300 ease-linear "
-              href="/Gallery"
-            >
-              GALLERY
-            </Link>
-            <Link
-              className="px-6 py-2 rounded-lg flex items-center text-hitam hover:shadow-[inset_-2px_-2px_5px_rgba(255,_255,_255,_1),inset_2px_2px_4px_rgba(0,_0,_0,_0.3)] transition duration-300 ease-linear "
-              href="/Contact"
-            >
-              CONTACT
-            </Link>
+            {link1.map((item) => {
+              return (
+                <Link
+                  key={item.id}
+                  className="px-6 py-2 rounded-lg flex items-center text-hitam hover:shadow-[inset_-2px_-2px_5px_rgba(255,_255,_255,_1),inset_2px_2px_4px_rgba(0,_0,_0,_0.3)] transition duration-300 ease-linear "
+                  href={item.link}
+                >
+                  {item.title}
+                </Link>
+              );
+            })}
           </div>
           <div>
             <Link href="/">
@@ -78,12 +193,18 @@ const Navbar = () => {
             </Link>
           </div>
           <div className="flex gap-5 items-center">
-            <Link
-              className="px-6 py-2 rounded-lg flex items-center text-hitam hover:shadow-[inset_-2px_-2px_5px_rgba(255,_255,_255,_1),inset_2px_2px_4px_rgba(0,_0,_0,_0.3)] transition duration-300 ease-linear "
-              href="/Product"
-            >
-              PRODUCT
-            </Link>
+            {link2.map((item) => {
+              return (
+                <Link
+                  key={item.id}
+                  className="px-6 py-2 rounded-lg flex items-center text-hitam hover:shadow-[inset_-2px_-2px_5px_rgba(255,_255,_255,_1),inset_2px_2px_4px_rgba(0,_0,_0,_0.3)] transition duration-300 ease-linear "
+                  href={item.link}
+                >
+                  {item.title}
+                </Link>
+              );
+            })}
+
             {totalItems > 0 ? (
               <Badge className="right-0" content={totalItems}>
                 <Link
@@ -101,21 +222,11 @@ const Navbar = () => {
                 🛒 ORDER
               </Link>
             )}
-            <Link
-              className="px-6 py-2 rounded-lg flex items-center text-hitam hover:shadow-[inset_-2px_-2px_5px_rgba(255,_255,_255,_1),inset_2px_2px_4px_rgba(0,_0,_0,_0.3)] transition duration-300 ease-linear "
-              href="/Location"
-            >
-              LOCATION
-            </Link>
-            <Link
-              className="px-6 py-2 rounded-lg flex items-center text-hitam hover:shadow-[inset_-2px_-2px_5px_rgba(255,_255,_255,_1),inset_2px_2px_4px_rgba(0,_0,_0,_0.3)] transition duration-300 ease-linear "
-              href="/Career"
-            >
-              CAREER
-            </Link>
           </div>
         </div>
       </nav>
+
+      {/*Mobile */}
       <nav className="lg:hidden bg-kuning p-2 block sticky top-0 z-50">
         <div className="flex justify-between mx-2">
           <div className="flex gap-3 justify-center items-center">
@@ -185,89 +296,33 @@ const Navbar = () => {
                     </ListItem>
                     <AccordionBody className="py-1">
                       <List className="p-0">
-                        <Link href="/Product">
-                          <ListItem>
-                            <ListItemPrefix>
-                              <ChevronRightIcon
-                                strokeWidth={3}
-                                className="h-3 w-5"
-                              />
-                            </ListItemPrefix>
-                            All
-                          </ListItem>
-                        </Link>
-                        <Link href="/Product/Gembung">
-                          <ListItem>
-                            <ListItemPrefix>
-                              <ChevronRightIcon
-                                strokeWidth={3}
-                                className="h-3 w-5"
-                              />
-                            </ListItemPrefix>
-                            Roti Gembung
-                          </ListItem>
-                        </Link>
-                        <Link href="/Product/Pizza">
-                          <ListItem>
-                            <ListItemPrefix>
-                              <ChevronRightIcon
-                                strokeWidth={3}
-                                className="h-3 w-5"
-                              />
-                            </ListItemPrefix>
-                            Pizza
-                          </ListItem>
-                        </Link>
-                        <Link href="/Product/Bakpia">
-                          <ListItem>
-                            <ListItemPrefix>
-                              <ChevronRightIcon
-                                strokeWidth={3}
-                                className="h-3 w-5"
-                              />
-                            </ListItemPrefix>
-                            Bakpia
-                          </ListItem>
-                        </Link>
-                        <Link href="/Product/Cromboloni">
-                          <ListItem>
-                            <ListItemPrefix>
-                              <ChevronRightIcon
-                                strokeWidth={3}
-                                className="h-3 w-5"
-                              />
-                            </ListItemPrefix>
-                            Cromboloni
-                          </ListItem>
-                        </Link>
-                        <Link href="/Product/Donat">
-                          <ListItem>
-                            <ListItemPrefix>
-                              <ChevronRightIcon
-                                strokeWidth={3}
-                                className="h-3 w-5"
-                              />
-                            </ListItemPrefix>
-                            Donat
-                          </ListItem>
-                        </Link>
+                        {produkList.map((produk) => {
+                          return (
+                            <Link key={produk.id} href={produk.link}>
+                              <ListItem>
+                                <ListItemPrefix>
+                                  <ChevronRightIcon
+                                    strokeWidth={3}
+                                    className="h-3 w-5"
+                                  />
+                                </ListItemPrefix>
+                                {produk.title}
+                              </ListItem>
+                            </Link>
+                          );
+                        })}
                       </List>
                     </AccordionBody>
                   </Accordion>
                   <hr className="my-2 border-hitam" />
                   <div className="font-bold">
-                    <Link href="/">
-                      <ListItem>Home</ListItem>
-                    </Link>
-                    <Link href="/About">
-                      <ListItem>About</ListItem>
-                    </Link>
-                    <Link href="/Contact">
-                      <ListItem>Contact</ListItem>
-                    </Link>
-                    <Link href="/Location">
-                      <ListItem>Location</ListItem>
-                    </Link>
+                    {pages.map((page) => {
+                      return (
+                        <Link key={page.id} href={page.link}>
+                          <ListItem>{page.title}</ListItem>
+                        </Link>
+                      );
+                    })}
                   </div>
                 </List>
               </Card>
