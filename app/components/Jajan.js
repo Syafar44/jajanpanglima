@@ -12,8 +12,8 @@ const Jajan = () => {
 
   return (
     <main className="overflow-x-hidden lg:overflow-x-visible">
-      {/* Carausel layar Lebar */}
-      <section className="container mx-auto py-16 -mt-6 hidden lg:block lg:h-[580px] xl:h-[700px] 2xl:h-[800px] ">
+      {/* Desktop */}
+      <section className="container mx-auto px-28 2xl:px-0 pt-16 -mt-6 hidden lg:block lg:h-[480px] xl:h-[550px] 2xl:h-[800px] z-10">
         <Carousel loop={true} autoplay={true} className="rounded-xl">
           <img
             src="1.png"
@@ -32,7 +32,7 @@ const Jajan = () => {
           />
         </Carousel>
       </section>
-      {/* Carausel layar Kecil */}
+      {/* Mobile */}
       <section className="container px-5 mx-auto py-10 -mt-6 h-[25rem] lg:hidden">
         <Carousel loop={true} autoplay={true} className="rounded-xl">
           <img

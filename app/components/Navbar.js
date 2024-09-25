@@ -176,7 +176,7 @@ const Navbar = () => {
               return (
                 <Link
                   key={item.id}
-                  className="px-6 py-2 rounded-lg flex items-center text-hitam hover:shadow-[inset_-2px_-2px_5px_rgba(255,_255,_255,_1),inset_2px_2px_4px_rgba(0,_0,_0,_0.3)] transition duration-300 ease-linear "
+                  className="lg:px-2 xl:px-3 2xl:px-6 py-2 rounded-lg flex items-center text-hitam hover:shadow-[inset_-2px_-2px_5px_rgba(255,_255,_255,_1),inset_2px_2px_4px_rgba(0,_0,_0,_0.3)] transition duration-300 ease-linear "
                   href={item.link}
                 >
                   {item.title}
@@ -187,7 +187,7 @@ const Navbar = () => {
           <div>
             <Link href="/">
               <img
-                className="w-20 scale-[2.2] translate-y-5"
+                className="w-20 lg:scale-[2] 2xl:scale-[2.2] translate-y-5"
                 src="https://raw.githubusercontent.com/Syafar44/assets/main/assets/image/LOGO%20JAJAN%20Panglima-01.png"
               />
             </Link>
@@ -197,7 +197,7 @@ const Navbar = () => {
               return (
                 <Link
                   key={item.id}
-                  className="px-6 py-2 rounded-lg flex items-center text-hitam hover:shadow-[inset_-2px_-2px_5px_rgba(255,_255,_255,_1),inset_2px_2px_4px_rgba(0,_0,_0,_0.3)] transition duration-300 ease-linear "
+                  className="lg:px-2 xl:px-3 2xl:px-6 py-2 rounded-lg flex items-center text-hitam hover:shadow-[inset_-2px_-2px_5px_rgba(255,_255,_255,_1),inset_2px_2px_4px_rgba(0,_0,_0,_0.3)] transition duration-300 ease-linear "
                   href={item.link}
                 >
                   {item.title}
