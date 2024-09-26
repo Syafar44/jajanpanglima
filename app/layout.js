@@ -1,7 +1,7 @@
 import { Teko } from "next/font/google";
 import "./globals.css";
 import "animate.css";
-import GoogleAnalytics from "../components/GoogleAnalytics"; // Pastikan path ini sesuai
+import GoogleAnalytics from "./analytics"; // Pastikan path ini sesuai
 
 const teko = Teko({
   weight: ["300", "700"],
