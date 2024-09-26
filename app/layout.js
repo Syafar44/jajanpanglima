@@ -1,6 +1,7 @@
 import { Teko } from "next/font/google";
 import "./globals.css";
 import "animate.css";
+import GoogleAnalytics from "../components/GoogleAnalytics"; // Pastikan path ini sesuai
 
 const teko = Teko({
   weight: ["300", "700"],
@@ -23,7 +24,10 @@ export default function RootLayout({ children }) {
           sizes="16x16"
         />
       </head>
-      <body className={teko.className}>{children}</body>
+      <body className={teko.className}>
+        <GoogleAnalytics />
+        {children}
+      </body>
     </html>
   );
 }
