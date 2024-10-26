@@ -35,11 +35,6 @@ const link1 = [
   },
   {
     id: 3,
-    title: "GALLERY",
-    link: "/Gallery",
-  },
-  {
-    id: 4,
     title: "CONTACT",
     link: "/Contact",
   },
@@ -47,19 +42,14 @@ const link1 = [
 
 const link2 = [
   {
-    id: 5,
+    id: 4,
     title: "PRODUCT",
     link: "/Product",
   },
   {
-    id: 6,
+    id: 5,
     title: "LOCATION",
     link: "/Location",
-  },
-  {
-    id: 7,
-    title: "CAREER",
-    link: "/Career",
   },
 ];
 
@@ -129,23 +119,13 @@ const pages = [
   },
   {
     id: 3,
-    title: "Gallery",
-    link: "/Gallery",
-  },
-  {
-    id: 4,
     title: "Contact",
     link: "/Contact",
   },
   {
-    id: 6,
+    id: 4,
     title: "Location",
     link: "/Location",
-  },
-  {
-    id: 7,
-    title: "Career",
-    link: "/Career",
   },
 ];
 
@@ -166,7 +146,7 @@ const Navbar = () => {
     setTotalItems(total);
   }, []);
 
-  return (
+  return (  
     <>
       {/* Desktop */}
       <nav className="hidden lg:block lg:px-8 lg:py-4 bg-kuning sticky top-0 z-50">
