@@ -13,6 +13,11 @@ import {
   Drawer,
   Card,
   Badge,
+  Menu,
+  MenuHandler,
+  MenuList,
+  Collapse,
+  MenuItem,
 } from "@material-tailwind/react";
 
 import {
@@ -129,6 +134,61 @@ const pages = [
   },
 ];
 
+function NavListMenu() {
+  const [isMenuOpen, setIsMenuOpen] = React.useState(false);
+  const [isMobileMenuOpen, setIsMobileMenuOpen] = React.useState(false);
+  const renderItems = produkList.map(({ title, link }, id) => (
+    <a href={link} key={id}>
+      <MenuItem className="flex justify-center items-center gap-3 border-b">
+        <div>
+          <Typography
+            variant="h6"
+            color="blue-gray"
+            className="flex items-center text-sm font-bold"
+          >
+            {title}
+          </Typography>
+        </div>
+      </MenuItem>
+    </a>
+  ));
+
+  return (
+    <React.Fragment>
+      <Menu
+        open={isMenuOpen}
+        handler={setIsMenuOpen}
+        offset={{ mainAxis: 20 }}
+        placement="bottom"
+        allowHover={true}
+      >
+        <MenuHandler>
+          <Typography as="div" variant="small" className="font-medium">
+            <ListItem
+              className="flex items-center gap-2 py-2 pr-4 font-medium text-gray-900"
+              selected={isMenuOpen || isMobileMenuOpen}
+              onClick={() => setIsMobileMenuOpen((cur) => !cur)}
+            >
+              Produk
+              <ChevronDownIcon
+                strokeWidth={2.5}
+                className={`h-3 w-3 transition-transform ${
+                  isMenuOpen ? "rotate-180" : ""
+                }`}
+              />
+            </ListItem>
+          </Typography>
+        </MenuHandler>
+        <MenuList className="max-w-screen-xl rounded-xl">
+          <ul className="grid grid-cols-3 gap-y-2 outline-none outline-0">
+            {renderItems}
+          </ul>
+        </MenuList>
+      </Menu>
+    </React.Fragment>
+  );
+}
+
 const Navbar = () => {
   const [open, setOpen] = React.useState(0);
   const [isDrawerOpen, setIsDrawerOpen] = React.useState(false);
@@ -146,7 +206,7 @@ const Navbar = () => {
     setTotalItems(total);
   }, []);
 
-  return (  
+  return (
     <>
       {/* Desktop */}
       <nav className="hidden lg:block lg:px-8 lg:py-4 bg-kuning sticky top-0 z-50">
@@ -247,7 +307,6 @@ const Navbar = () => {
                     )}
                   </div>
                 </div>
-
                 <List>
                   <Accordion
                     className="border border-hitam rounded-xl"
@@ -314,18 +373,21 @@ const Navbar = () => {
               />
             </Link>
           </div>
-          <div className="flex mr-5 items-center text-kuning font-bold bg-black px-4 my-2 rounded-2xl">
-            {totalItems > 0 ? (
-              <Badge className="-right-3" content={totalItems}>
+          <div className="flex gap-3 justify-center items-center">
+            <NavListMenu />
+            <div className="flex mr-5 items-center text-kuning font-bold bg-black px-3 my-3 rounded-2xl">
+              {totalItems > 0 ? (
+                <Badge className="-right-3" content={totalItems}>
+                  <Link href="/Order" className="">
+                    🛒
+                  </Link>
+                </Badge>
+              ) : (
                 <Link href="/Order" className="">
-                  🛒 ORDER
+                  🛒
                 </Link>
-              </Badge>
-            ) : (
-              <Link href="/Order" className="">
-                🛒 ORDER
-              </Link>
-            )}
+              )}
+            </div>
           </div>
         </div>
       </nav>

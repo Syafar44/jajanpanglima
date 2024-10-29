@@ -24,7 +24,7 @@ export default function RootLayout({ children }) {
           sizes="16x16"
         />
       </head>
-      <body className={teko.className}>
+      <body className={`${teko.className}`}>
         <GoogleAnalytics />
         {children}
       </body>

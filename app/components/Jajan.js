@@ -5,6 +5,42 @@ import { Carousel } from "@material-tailwind/react";
 import AOS from "aos";
 import "aos/dist/aos.css";
 
+const posterDesktop = [
+  {
+    id: 1,
+    image: "./poster/Poster Sarapan.jpg",
+    title: "Jajan Panglima",
+  },
+  {
+    id: 2,
+    image: "./poster/Stiker Box.jpg",
+    title: "Jajan Panglima",
+  },
+  {
+    id: 3,
+    image: "3.png",
+    title: "Jajan Panglima",
+  },
+];
+
+const posterMobile = [
+  {
+    id: 1,
+    image: "./poster/Feed Roti Gembung Hangat.jpg",
+    title: "Jajan Panglima",
+  },
+  {
+    id: 2,
+    image: "./poster/roti tawar post-01.jpg",
+    title: "Jajan Panglima",
+  },
+  {
+    id: 3,
+    image: "./poster/web jajan.jpg",
+    title: "Jajan Panglima",
+  },
+];
+
 const Jajan = () => {
   useEffect(() => {
     AOS.init();
@@ -14,42 +50,33 @@ const Jajan = () => {
     <main className="overflow-x-hidden lg:overflow-x-visible">
       {/* Desktop */}
       <section className="container mx-auto px-28 2xl:px-0 pt-16 -mt-6 hidden lg:block lg:h-[480px] xl:h-[550px] 2xl:h-[800px] z-10">
-        <Carousel loop={true} autoplay={true} className="rounded-xl">
-          <img
-            src="1.png"
-            alt="image 1"
-            className="h-full w-full object-cover object-top"
-          />
-          <img
-            src="2.png"
-            alt="image 1"
-            className="h-full w-full object-cover object-top"
-          />
-          <img
-            src="3.png"
-            alt="image 1"
-            className="h-full w-full object-cover object-top"
-          />
+        <Carousel loop={true} autoplay={true} className="rounded-xl shadow-lg">
+          {posterDesktop.map((poster) => {
+            return (
+              <img
+                key={poster.id}
+                src={poster.image}
+                alt={poster.title}
+                className="h-full w-full object-cover object-top"
+              />
+            );
+          })}
         </Carousel>
       </section>
+
       {/* Mobile */}
-      <section className="container px-5 mx-auto py-10 -mt-6 h-[25rem] lg:hidden">
-        <Carousel loop={true} autoplay={true} className="rounded-xl">
-          <img
-            src="1.png"
-            alt="image 1"
-            className="h-full w-full object-cover object-top"
-          />
-          <img
-            src="2.png"
-            alt="image 1"
-            className="h-full w-full object-cover object-top"
-          />
-          <img
-            src="3.png"
-            alt="image 1"
-            className="h-full w-full object-cover object-top"
-          />
+      <section className="container px-5 mx-auto py-6 mt-2 h-[25rem] lg:hidden">
+        <Carousel loop={true} autoplay={true} className="rounded-xl shadow-lg">
+          {posterMobile.map((poster) => {
+            return (
+              <img
+                key={poster.id}
+                src={poster.image}
+                alt={poster.title}
+                className="w-full object-cover object-center"
+              />
+            );
+          })}
         </Carousel>
       </section>
 
