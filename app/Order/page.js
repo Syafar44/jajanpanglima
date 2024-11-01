@@ -4,9 +4,6 @@ import React from "react";
 import Navbar from "../components/Navbar";
 import { useState, useEffect } from "react";
 import {
-  List,
-  ListItem,
-  ListItemSuffix,
   Card,
   IconButton,
   Chip,
@@ -88,7 +85,7 @@ const Order = () => {
   };
 
   const sendMessageToWhatsApp = () => {
-    let message = `*JAJAN PANGLIMA*\nNama Penerima: *${name}*\nProduk:\n`;
+    let message = `*JAJAN PANGLIMA*\nNama Penerima: *${name}*\nNo Tlp: ${nomer}\nProduk:\n`;
 
     cart.forEach((item) => {
       message += `- *${item.nama}*, Harga: ${item.harga}, Jumlah: *${item.quantity}*\n`;
