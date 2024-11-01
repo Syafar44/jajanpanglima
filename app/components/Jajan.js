@@ -8,18 +8,18 @@ import "aos/dist/aos.css";
 const posterDesktop = [
   {
     id: 1,
-    image: "./poster/Poster Sarapan.jpg",
-    title: "Jajan Panglima",
+    image: "./poster/promo ongkir web-01.jpg",
+    title: "Sarapan Panglima",
   },
   {
     id: 2,
     image: "./poster/Stiker Box.jpg",
-    title: "Jajan Panglima",
+    title: "stiker box Jajan Panglima",
   },
   {
     id: 3,
-    image: "3.png",
-    title: "Jajan Panglima",
+    image: "./poster/Poster Sarapan.jpg",
+    title: "Jgratis ongkir jajan Panglima",
   },
 ];
 
@@ -37,6 +37,11 @@ const posterMobile = [
   {
     id: 3,
     image: "./poster/web jajan.jpg",
+    title: "Jajan Panglima",
+  },
+  {
+    id: 4,
+    image: "./poster/gratis ongkir feed ig.-01.jpg",
     title: "Jajan Panglima",
   },
 ];
