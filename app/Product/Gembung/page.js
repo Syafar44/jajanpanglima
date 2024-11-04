@@ -36,7 +36,7 @@ const products = [
   },
   {
     id: 28,
-    nama: "Coklat Keju (NEW)",
+    nama: "Coklat Keju",
     harga: 20000,
     gambar: "../produk/gembung/coklat atau choco keju.jpg",
   },
@@ -177,7 +177,7 @@ const Gembung = () => {
           </Link>{" "}
           / Gembung
         </h1>
-        <div className="grid grid-cols-2 lg:grid-cols-4 2xl:grid-cols-5 mt-6 gap-5">
+        <div className="grid grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 2xl:grid-cols-5 mt-6 gap-5">
           {products.map((product) => {
             const cartItem = cart.find((item) => item.id === product.id);
             return (

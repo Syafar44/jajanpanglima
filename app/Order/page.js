@@ -148,7 +148,7 @@ const Order = () => {
             {cart.map((product, index) => (
               <tr key={index}>
                 <td className="pl-5 lg:text-xl">{product.nama}</td>
-                <td className="text-center p-2 hidden lg:block">
+                <td className="text-center px-2 py-3 hidden lg:block">
                   {rupiah(product.harga)}
                 </td>
                 <td>
@@ -173,7 +173,7 @@ const Order = () => {
                     </Button>
                   </div>
                 </td>
-                <td className="text-center p-2">
+                <td className="text-center px-2">
                   {rupiah(product.harga * product.quantity)}
                 </td>
                 <td className="text-center p-2">
