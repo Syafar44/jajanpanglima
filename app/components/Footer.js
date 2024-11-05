@@ -5,25 +5,25 @@ const Footer = () => {
     <footer className="mt-10 bg-kuning dark:bg-gray-900">
       <div className="container p-6 mx-auto">
         <div className="lg:flex">
-          <div className="w-full -mx-6 lg:w-2/5">
+          <div className="w-full -mx-6 lg:w-2/6">
             <div className="px-6">
-              <div className="flex gap-10">
+              <div className="flex gap-5">
                 <a href="/">
                   <img
                     className="w-auto h-20"
                     src="https://raw.githubusercontent.com/Syafar44/assets/main/assets/image/LOGO%20JAJAN%20Panglima-01.png"
-                    alt=""
+                    alt="logo jajan panglima"
                   />
                 </a>
 
                 <img
                   className="w-auto h-20"
                   src="https://upload.wikimedia.org/wikipedia/commons/1/1c/Halal_Indonesia.svg"
-                  alt=""
+                  alt="logo halal indonesia"
                 />
               </div>
 
-              <div className="flex mt-6 -mx-2">
+              <div className="flex mt-6">
                 <a
                   target="_blank"
                   href="https://www.instagram.com/jajanpanglima"
@@ -158,7 +158,7 @@ const Footer = () => {
                   gembungpanglima@gmail.com
                 </span>
               </div>
-              <h3 className="p-5">JAM OPERASIONAL 06.30 - 22.00WITA</h3>
+              <h3 className="pl-5">JAM OPERASIONAL 06.30 - 22.00WITA</h3>
             </div>
           </div>
         </div>
