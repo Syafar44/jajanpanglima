@@ -15,7 +15,7 @@ const About = () => {
   return (
     <>
       <Navbar />
-      <section className="bg-putih dark:bg-gray-900 -mt-40 xl:-mt-32 overflow-x-hidden">
+      <section className="bg-putih dark:bg-gray-900 -mt-20 md:-mt-10 xl:-mt-32 overflow-x-hidden">
         <div className="relative flex lg:z-10">
           <div className="lg:min-h-screen lg:w-1/3"></div>
           <div className="hidden w-3/4 min-h-screen bg-gray-100 dark:bg-gray-800 lg:block"></div>
@@ -98,7 +98,7 @@ const About = () => {
         </div>
       </section>
 
-      <section className="bg-putih dark:bg-gray-900 xl:-mt-36 2xl:-mt-72 -mt-96 -mb-10 z-20 overflow-x-hidden">
+      <section className="bg-putih dark:bg-gray-900 md:-mt-20 xl:-mt-36 2xl:-mt-72 -mt-52 -mb-10 z-20 overflow-x-hidden">
         <div className="relative flex">
           <div className="min-h-screen lg:w-1/3"></div>
           <div className="hidden w-3/4 min-h-screen bg-gray-100 dark:bg-gray-800 lg:block"></div>
