@@ -10,15 +10,80 @@ import {
 import Link from "next/link";
 import Footer from "../components/Footer";
 import Wa from "../components/Wa";
-import { Teko } from "next/font/google";
+import { Rubik } from "next/font/google";
 
 import AOS from "aos";
 import "aos/dist/aos.css";
 
-const teko = Teko({
-  weight: ["300", "700"],
+const rubik = Rubik({
+  weight: ["400"],
   subsets: ["latin"],
 });
+
+const pageProduk = [
+  {
+    id: 1,
+    title: "Gembung",
+    image: "produk/gembung/original.jpg",
+    link: "/Product/Gembung",
+  },
+  {
+    id: 2,
+    title: "Pizza",
+    image: "produk/pizza/Pizza Ayam Kari.jpg",
+    link: "/Product/Pizza",
+  },
+  {
+    id: 3,
+    title: "Bakpia",
+    image: "produk/bakpia/1 Paket Pia.jpg",
+    link: "/Product/Bakpia",
+  },
+  {
+    id: 4,
+    title: "Cromboloni",
+    image: "produk/cromboloni/Cromboloni Tiramisu.jpg",
+    link: "/Product/Cromboloni",
+  },
+  {
+    id: 5,
+    title: "Brownies",
+    image: "produk/brownies/brwonies mini paket.jpg",
+    link: "/Product/Brownies",
+  },
+  {
+    id: 6,
+    title: "Bolen",
+    image: "produk/bolen/Bolen Pisang Mix.jpg",
+    link: "/Product/Bolen",
+  },
+  {
+    id: 7,
+    title: "Roti-tawar",
+    image: "/produk/roti tawar/Roti Tawar.jpg",
+    link: "/Product/Roti-tawar",
+  },
+  {
+    id: 8,
+    title: "Untuq-untuq",
+    image: "produk/untuq-untuq/Untuq Untuq Ayam Kari.jpg",
+    link: "/Product/Untuq-untuq",
+  },
+  {
+    id: 9,
+    title: "Donat",
+    image: "produk/donat/donat paket.jpg",
+    link: "/Product/Donat",
+  },
+  {
+    id: 10,
+    title: "All",
+    image: "All.png",
+    link: "/Product/All",
+  },
+];
+
+
 const Product = () => {
   const [isLoading, setIsLoading] = useState(true);
 
@@ -42,198 +107,30 @@ const Product = () => {
         <div
           className={`grid grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 2xl:grid-cols-5 mt-6 gap-2 lg:gap-5`}
         >
-          <Link href="/Product/Gembung">
-            <Card className="hover:scale-105 ease-in-out transition">
-              <CardHeader floated={false}>
-                {isLoading ? (
-                  <div className="skeleton h-48 lg:h-60 xl:h-80"></div>
-                ) : (
-                  <img src="./produk/gembung/original.jpg" alt="roti gembung" />
-                )}
-              </CardHeader>
-              <CardBody className="text-center">
-                <Typography
-                  variant="h5"
-                  color="blue-gray"
-                  className={`-my-2 lg:my-0  ${teko.className}`}
-                >
-                  Gembung
-                </Typography>
-              </CardBody>
-            </Card>
-          </Link>
-          <Link href="/Product/Pizza">
-            <Card className="hover:scale-105 ease-in-out transition">
-              <CardHeader floated={false}>
-                {isLoading ? (
-                  <div className="skeleton h-48 lg:h-60 xl:h-80"></div>
-                ) : (
-                  <img src="./produk/pizza/Pizza Ayam Kari.jpg" alt="Pizza" />
-                )}
-              </CardHeader>
-              <CardBody className="text-center">
-                <Typography
-                  variant="h5"
-                  color="blue-gray"
-                  className={`-my-2 lg:my-0  ${teko.className}`}
-                >
-                  Pizza
-                </Typography>
-              </CardBody>
-            </Card>
-          </Link>
-          <Link href="/Product/Bakpia">
-            <Card className="hover:scale-105 ease-in-out transition">
-              <CardHeader floated={false}>
-                {isLoading ? (
-                  <div className="skeleton h-48 lg:h-60 xl:h-80"></div>
-                ) : (
-                  <img src="./produk/bakpia/1 Paket Pia.jpg" alt="Bakpia" />
-                )}
-              </CardHeader>
-              <CardBody className="text-center">
-                <Typography
-                  variant="h5"
-                  color="blue-gray"
-                  className={`-my-2 lg:my-0  ${teko.className}`}
-                >
-                  Bakpia
-                </Typography>
-              </CardBody>
-            </Card>
-          </Link>
-          <Link href="/Product/Cromboloni">
-            <Card className="hover:scale-105 ease-in-out transition">
-              <CardHeader floated={false}>
-                {isLoading ? (
-                  <div className="skeleton h-48 lg:h-60 xl:h-80"></div>
-                ) : (
-                  <img
-                    src="./produk/cromboloni/Cromboloni Vanila.jpg"
-                    alt="Cromboloni"
-                  />
-                )}
-              </CardHeader>
-              <CardBody className="text-center">
-                <Typography
-                  variant="h5"
-                  color="blue-gray"
-                  className={`-my-2 lg:my-0  ${teko.className}`}
-                >
-                  Cromboloni
-                </Typography>
-              </CardBody>
-            </Card>
-          </Link>
-          <Link href="/Product/Brownies">
-            <Card className="hover:scale-105 ease-in-out transition">
-              <CardHeader floated={false}>
-                {isLoading ? (
-                  <div className="skeleton h-48 lg:h-60 xl:h-80"></div>
-                ) : (
-                  <img
-                    src="./produk/brownies/brwonies mini paket.jpg"
-                    alt="Brownies"
-                  />
-                )}
-              </CardHeader>
-              <CardBody className="text-center">
-                <Typography
-                  variant="h5"
-                  color="blue-gray"
-                  className={`-my-2 lg:my-0  ${teko.className}`}
-                >
-                  Brownies
-                </Typography>
-              </CardBody>
-            </Card>
-          </Link>
-          <Link href="/Product/Bolen">
-            <Card className="hover:scale-105 ease-in-out transition">
-              <CardHeader floated={false}>
-                {isLoading ? (
-                  <div className="skeleton h-48 lg:h-60 xl:h-80"></div>
-                ) : (
-                  <img src="./produk/bolen/Bolen Pisang Mix.jpg" alt="Bolen" />
-                )}
-              </CardHeader>
-              <CardBody className="text-center">
-                <Typography
-                  variant="h5"
-                  color="blue-gray"
-                  className={`-my-2 lg:my-0  ${teko.className}`}
-                >
-                  Bolen
-                </Typography>
-              </CardBody>
-            </Card>
-          </Link>
-          <Link href="/Product/Roti-tawar">
-            <Card className="hover:scale-105 ease-in-out transition">
-              <CardHeader floated={false}>
-                {isLoading ? (
-                  <div className="skeleton h-48 lg:h-60 xl:h-80"></div>
-                ) : (
-                  <img
-                    src="./produk/roti tawar/Roti Tawar.jpg"
-                    alt="Roti Tawar"
-                  />
-                )}
-              </CardHeader>
-              <CardBody className="text-center">
-                <Typography
-                  variant="h5"
-                  color="blue-gray"
-                  className={`-my-2 lg:my-0  ${teko.className}`}
-                >
-                  Roti Tawar
-                </Typography>
-              </CardBody>
-            </Card>
-          </Link>
-          <Link href="/Product/Untuq-untuq">
-            <Card className="hover:scale-105 ease-in-out transition">
-              <CardHeader floated={false}>
-                {isLoading ? (
-                  <div className="skeleton h-48 lg:h-60 xl:h-80"></div>
-                ) : (
-                  <img
-                    src="./produk/untuq-untuq/Untuq Untuq Ayam Kari.jpg"
-                    alt="Untuq-untuq"
-                  />
-                )}
-              </CardHeader>
-              <CardBody className="text-center">
-                <Typography
-                  variant="h5"
-                  color="blue-gray"
-                  className={`-my-2 lg:my-0  ${teko.className}`}
-                >
-                  Untuq-untuq
-                </Typography>
-              </CardBody>
-            </Card>
-          </Link>
-          <Link href="/Product/Donat">
-            <Card className="hover:scale-105 ease-in-out transition">
-              <CardHeader floated={false}>
-                {isLoading ? (
-                  <div className="skeleton h-48 lg:h-60 xl:h-80"></div>
-                ) : (
-                  <img src="./produk/donat/Donat Original,.jpg" alt="Donat" />
-                )}
-              </CardHeader>
-              <CardBody className="text-center">
-                <Typography
-                  variant="h5"
-                  color="blue-gray"
-                  className={`-my-2 lg:my-0  ${teko.className}`}
-                >
-                  Donat
-                </Typography>
-              </CardBody>
-            </Card>
-          </Link>
+          {pageProduk.map((page) => {
+            return (
+              <Link key={page.id} href={page.link}>
+                <Card className="hover:scale-105 ease-in-out transition">
+                  <CardHeader floated={false}>
+                    {isLoading ? (
+                      <div className="skeleton h-48 lg:h-60 xl:h-80"></div>
+                    ) : (
+                      <img src={page.image} alt={page.title} />
+                    )}
+                  </CardHeader>
+                  <CardBody className="text-center">
+                    <Typography
+                      variant="h5"
+                      color="blue-gray"
+                      className={`-my-2 lg:my-0  ${rubik.className}`}
+                    >
+                      {page.title}
+                    </Typography>
+                  </CardBody>
+                </Card>
+              </Link>
+            );
+          })}
         </div>
       </section>
       <Footer />

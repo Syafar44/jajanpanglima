@@ -17,103 +17,103 @@ import Link from "next/link";
 
 const products = [
   {
-    id: 25,
+    id: 21,
     nama: "Original",
     harga: 10000,
     gambar: "../produk/gembung/original.jpg",
   },
   {
-    id: 26,
+    id: 22,
     nama: "Coklat",
     harga: 15000,
     gambar: "../produk/gembung/Coklat.JPG",
   },
   {
-    id: 27,
+    id: 23,
     nama: "Choco Milo",
     harga: 15000,
     gambar: "../produk/gembung/Chococrunchy.jpg",
   },
   {
-    id: 28,
+    id: 24,
     nama: "Coklat Keju",
     harga: 20000,
     gambar: "../produk/gembung/coklat atau choco keju.jpg",
   },
   {
-    id: 29,
+    id: 25,
     nama: "Coklat Crunchy",
     harga: 16000,
     gambar: "../produk/gembung/Chococrunchy.jpg",
   },
   {
-    id: 30,
+    id: 26,
     nama: "Coklat Crunchy Keju",
     harga: 20000,
     gambar: "../produk/gembung/coklat atau choco keju.jpg",
   },
   {
-    id: 31,
+    id: 27,
     nama: "Durian",
     harga: 24000,
     gambar: "../produk/gembung/durian.jpg",
   },
   {
-    id: 32,
+    id: 28,
     nama: "Durian Keju",
     harga: 27000,
     gambar: "../produk/gembung/Gembung Durian Keju.jpg",
   },
   {
-    id: 33,
+    id: 29,
     nama: "Sarikaya",
     harga: 20000,
     gambar: "../produk/gembung/sarikaya.png",
   },
   {
-    id: 34,
+    id: 221,
     nama: "Sarikaya Keju",
     harga: 24000,
     gambar: "../produk/gembung/Gembung Sarikaya keju.jpg",
   },
   {
-    id: 35,
+    id: 222,
     nama: "Nanas",
     harga: 14000,
     gambar: "../produk/gembung/Nanas.JPG",
   },
   {
-    id: 36,
+    id: 223,
     nama: "Strawberry",
     harga: 15000,
     gambar: "../produk/gembung/Gembung Stawbery.jpg",
   },
   {
-    id: 37,
+    id: 224,
     nama: "Keju Susu",
     harga: 17000,
     gambar: "../produk/gembung/keju susu.jpg",
   },
   {
-    id: 38,
+    id: 225,
     nama: "Green Tea Crunchy",
     harga: 17000,
     gambar: "../produk/gembung/green tea.jpg",
   },
   {
-    id: 39,
+    id: 226,
     nama: "Tiramisu Crunchy",
     harga: 17000,
     gambar: "../produk/gembung/tiramisu 2.jpg",
   },
   {
-    id: 40,
+    id: 227,
     nama: "Sosis Meleleh",
     harga: 33000,
     gambar: "../produk/gembung/Sosis Melelh.png",
   },
   {
-    id: 41,
+    id: 228,
     nama: "Kari Meleleh",
     harga: 30000,
     gambar: "../produk/gembung/ayam kari meleleh.jpg",
@@ -165,7 +165,15 @@ const Gembung = () => {
     localStorage.setItem("cartjajan", JSON.stringify(newCart));
   };
 
-
+// convert IDR
+const rupiah = (number) => {
+  return new Intl.NumberFormat("id-ID", {
+    style: "currency",
+    currency: "IDR",
+    minimumFractionDigits: 0,
+    maximumFractionDigits: 0,
+  }).format(number);
+};
 
   return (
     <>
@@ -177,7 +185,7 @@ const Gembung = () => {
           </Link>{" "}
           / Gembung
         </h1>
-        <div className="grid grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 2xl:grid-cols-5 mt-6 gap-5">
+        <div className="grid grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 mt-6 gap-5">
           {products.map((product) => {
             const cartItem = cart.find((item) => item.id === product.id);
             return (
@@ -214,7 +222,7 @@ const Gembung = () => {
                     {product.nama}
                   </Typography>
                   <Typography variant="h5" className="-mt-1 font-teko">
-                    Rp{product.harga}
+                  {rupiah(product.harga)}
                   </Typography>
                 </CardBody>
                 <CardFooter className="flex justify-center items-end -mt-10">

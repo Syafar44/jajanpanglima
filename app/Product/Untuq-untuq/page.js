@@ -16,25 +16,25 @@ import Link from "next/link";
 
 const products = [
   {
-    id: 81,
+    id: 91,
     nama: "Untuq-Untuq Inti Kelapa",
     harga: 2000,
     gambar: "../produk/untuq-untuq/Untuq Untuq inti Kelapa.jpg",
   },
   {
-    id: 82,
+    id: 92,
     nama: "Untuq-Untuq Kacang Hijau",
     harga: 2000,
     gambar: "../produk/untuq-untuq/Untuq Untuq Kacang,.jpg",
   },
   {
-    id: 83,
+    id: 93,
     nama: "Untuq-Untuq Kari Ayam",
     harga: 3000,
     gambar: "../produk/untuq-untuq/Untuq Untuq Ayam Kari.jpg",
   },
   {
-    id: 84,
+    id: 94,
     nama: "Untuq-Untuq Pisang Coklat",
     harga: 3000,
     gambar: "../produk/untuq-untuq/Untuq Untuq Pisang Coklat.jpg",
@@ -87,6 +87,16 @@ const UntuqUntuq = () => {
 
   const [imageLoaded, setImageLoaded] = React.useState({});
 
+  // convert IDR
+  const rupiah = (number) => {
+    return new Intl.NumberFormat("id-ID", {
+      style: "currency",
+      currency: "IDR",
+      minimumFractionDigits: 0,
+      maximumFractionDigits: 0,
+    }).format(number);
+  };
+
   return (
     <>
       <Navbar />
@@ -97,7 +107,7 @@ const UntuqUntuq = () => {
           </Link>{" "}
           / Untuq Untuq
         </h1>
-        <div className="grid grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 2xl:grid-cols-5 mt-6 gap-5">
+        <div className="grid grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 mt-6 gap-5">
           {products.map((product) => {
             const cartItem = cart.find((item) => item.id === product.id);
             return (
@@ -137,7 +147,7 @@ const UntuqUntuq = () => {
                       {product.nama}
                     </Typography>
                     <Typography variant="h5" className="-mt-1 font-teko">
-                      Rp{product.harga}
+                    {rupiah(product.harga)}
                     </Typography>
                   </CardBody>
                 </div>

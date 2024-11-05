@@ -91,7 +91,7 @@ const Bolen = () => {
           </Link>{" "}
           / Bolen
         </h1>
-        <div className="grid grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 2xl:grid-cols-5 mt-6 gap-5">
+        <div className="grid grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 mt-6 gap-5">
           {products.map((product) => {
             const cartItem = cart.find((item) => item.id === product.id);
             return (
@@ -131,7 +131,7 @@ const Bolen = () => {
                       {product.nama}
                     </Typography>
                     <Typography variant="h5" className="-mt-1 font-teko">
-                      Rp{product.harga}
+                    {rupiah(product.harga)}
                     </Typography>
                   </CardBody>
                 </div>

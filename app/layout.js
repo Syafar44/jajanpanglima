@@ -1,10 +1,10 @@
-import { Teko } from "next/font/google";
+import { Rubik } from "next/font/google";
 import "./globals.css";
 import "animate.css";
 import GoogleAnalytics from "./analytics";
 
-const teko = Teko({
-  weight: ["300", "700"],
+const rubik = Rubik({
+  weight: ["400"],
   subsets: ["latin"],
 });
 
@@ -24,7 +24,7 @@ export default function RootLayout({ children }) {
           sizes="16x16"
         />
       </head>
-      <body className={`${teko.className}`}>
+      <body className={`${rubik.className}`}>
         <GoogleAnalytics />
         {children}
       </body>

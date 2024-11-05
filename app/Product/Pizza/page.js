@@ -16,49 +16,49 @@ import Link from "next/link";
 
 const products = [
   {
-    id: 21,
+    id: 11,
     nama: "Pizza Ayam Kari",
     harga: 39000,
     gambar: "../produk/pizza/Pizza Ayam Kari.jpg",
   },
   {
-    id: 22,
+    id: 12,
     nama: "Pizza Beff",
     harga: 43000,
     gambar: "../produk/pizza/Pizza Beef.JPG",
   },
   {
-    id: 23,
+    id: 13,
     nama: "Pizza Chicken",
     harga: 42000,
     gambar: "../produk/pizza/Pizza Chicken.JPG",
   },
   {
-    id: 24,
+    id: 14,
     nama: "Pizza Meat Lovers",
     harga: 50000,
     gambar: "../produk/pizza/PizAa Meat Lovers.JPG",
   },
   {
-    id: 25,
+    id: 15,
     nama: "Pizza Slice Beff",
     harga: 15000,
     gambar: "../produk/pizza/Pizza Slice Beff,.jpg",
   },
   {
-    id: 26,
+    id: 16,
     nama: "Pizza  Slice Chicken",
     harga: 15000,
     gambar: "../produk/pizza/Pizza Slice Chicken.jpg",
   },
   {
-    id: 27,
+    id: 17,
     nama: "Pizza Slice Meat Lovers",
     harga: 15000,
     gambar: "../produk/pizza/Pizza Slice Meat Lovers.jpg",
   },
   {
-    id: 28,
+    id: 18,
     nama: "Pizza Sosis",
     harga: 41000,
     gambar: "../produk/pizza/Sosis.JPG",
@@ -111,6 +111,16 @@ const Pizza = () => {
 
   const [imageLoaded, setImageLoaded] = React.useState({});
 
+  // convert IDR
+  const rupiah = (number) => {
+    return new Intl.NumberFormat("id-ID", {
+      style: "currency",
+      currency: "IDR",
+      minimumFractionDigits: 0,
+      maximumFractionDigits: 0,
+    }).format(number);
+  };
+
   return (
     <>
       <Navbar />
@@ -121,7 +131,7 @@ const Pizza = () => {
           </Link>{" "}
           / Pizza
         </h1>
-        <div className="grid grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 2xl:grid-cols-5 mt-6 gap-5">
+        <div className="grid grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 mt-6 gap-5">
           {products.map((product) => {
             const cartItem = cart.find((item) => item.id === product.id);
             return (
@@ -161,7 +171,7 @@ const Pizza = () => {
                       {product.nama}
                     </Typography>
                     <Typography variant="h5" className="-mt-1 font-teko">
-                      Rp{product.harga}
+                    {rupiah(product.harga)}
                     </Typography>
                   </CardBody>
                 </div>

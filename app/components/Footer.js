@@ -100,7 +100,9 @@ const Footer = () => {
           <div className="mt-6 lg:mt-0 lg:flex-1">
             <div className="grid grid-cols-1 gap-6 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4">
               <div>
-                <h3 className="text-gray-700 uppercase dark:text-white">About</h3>
+                <h3 className="text-gray-700 uppercase dark:text-white">
+                  About
+                </h3>
                 <a
                   href="#"
                   className="block mt-2 text-sm text-hitam dark:text-gray-400 hover:underline"
@@ -122,7 +124,9 @@ const Footer = () => {
               </div>
 
               <div>
-                <h3 className="text-hitam uppercase dark:text-white">Products</h3>
+                <h3 className="text-gray-700 uppercase dark:text-white">
+                  Products
+                </h3>
                 <a
                   href="/Product/Gembung"
                   className="block mt-2 text-sm text-hitam dark:text-gray-400 hover:underline"
@@ -144,14 +148,17 @@ const Footer = () => {
               </div>
 
               <div>
-                <h3 className="text-gray-700 uppercase dark:text-white">Contact</h3>
+                <h3 className="text-gray-700 uppercase dark:text-white">
+                  Contact
+                </h3>
                 <span className="block mt-2 text-sm text-hitam dark:text-gray-400 hover:underline">
-                08 222 000 2237
+                  08 222 000 2237
                 </span>
                 <span className="block mt-2 text-sm text-hitam dark:text-gray-400 hover:underline">
-                gembungpanglima@gmail.com
+                  gembungpanglima@gmail.com
                 </span>
               </div>
+              <h3 className="p-5">JAM OPERASIONAL 06.30 - 22.00WITA</h3>
             </div>
           </div>
         </div>

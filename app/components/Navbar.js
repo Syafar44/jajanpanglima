@@ -16,7 +16,6 @@ import {
   Menu,
   MenuHandler,
   MenuList,
-  Collapse,
   MenuItem,
 } from "@material-tailwind/react";
 
@@ -192,9 +191,9 @@ function NavListMenu() {
 const Navbar = () => {
   const [open, setOpen] = React.useState(0);
   const [isDrawerOpen, setIsDrawerOpen] = React.useState(false);
+  const [totalItems, setTotalItems] = useState(0);
   const openDrawer = () => setIsDrawerOpen(true);
   const closeDrawer = () => setIsDrawerOpen(false);
-  const [totalItems, setTotalItems] = useState(0);
 
   const handleOpen = (value) => {
     setOpen(open === value ? 0 : value);
