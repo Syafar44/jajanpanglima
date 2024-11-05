@@ -36,15 +36,15 @@ const About = () => {
 
             <div className="mt-10 lg:mt-10 lg:flex lg:items-center">
               <img
-                className="object-cover object-center w-full lg:w-[32rem] rounded-lg h-96"
-                src="tes-1.jpg"
+                className="object-cover object-center w-full md:-ml-40 rounded-lg h-96"
+                src="visiMisi.jpg"
                 alt="Jajan"
                 data-aos="fade-right"
                 data-aos-duration="1000"
                 data-aos-easing="ease-in-out"
               />
 
-              <div className="mt-8 px-2 lg:px-10 xl:mt-0  text-gray-800">
+              <div className="mt-8 px-2 lg:pl-32 xl:mt-0  text-gray-800">
                 <h1
                   className="text-4xl font-bold dark:text-putih lg:w-72"
                   data-aos="fade-left"
@@ -171,8 +171,8 @@ const About = () => {
                 </ul>
               </div>
               <img
-                className="object-cover object-center 2xl:ml-40 w-full lg:w-[30rem] 2xl:w-[32rem] rounded-lg h-96"
-                src="./outlet/outlet-jajan.jpg"
+                className="object-cover object-center 2xl:ml-40 w-full rounded-lg h-96"
+                src="value.jpg"
                 alt="outlet juanda"
                 data-aos="fade-left"
                 data-aos-duration="2000"
