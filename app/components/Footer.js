@@ -158,7 +158,7 @@ const Footer = () => {
                   gembungpanglima@gmail.com
                 </span>
               </div>
-              <h3 className="pl-5">JAM OPERASIONAL 06.30 - 22.00WITA</h3>
+              <h3 className="md:text-sm pl-5 text-gray-700">JAM OPERASIONAL <br/><span className="text-black">06.30 - 22.00WITA</span></h3>
             </div>
           </div>
         </div>

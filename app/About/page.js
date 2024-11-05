@@ -15,47 +15,35 @@ const About = () => {
   return (
     <>
       <Navbar />
-      <section className="bg-putih dark:bg-gray-900 xl:-mt-32 overflow-x-hidden">
+      <section className="bg-putih dark:bg-gray-900 -mt-40 xl:-mt-32 overflow-x-hidden">
         <div className="relative flex lg:z-10">
           <div className="lg:min-h-screen lg:w-1/3"></div>
           <div className="hidden w-3/4 min-h-screen bg-gray-100 dark:bg-gray-800 lg:block"></div>
 
-          <div className="container flex flex-col justify-center w-full min-h-screen px-6 lg:px-20 py-10 mx-auto lg:absolute lg:inset-x-0">
+          <div className="container flex flex-col justify-center w-full min-h-screen px-6 xl:px-20 py-10 mx-auto lg:absolute lg:inset-x-0">
             <h1
               className="text-2xl font-semibold text-gray-800 capitalize lg:text-3xl dark:text-white"
               data-aos="fade-in"
               data-aos-duration="1500"
               data-aos-easing="ease-in-out"
             >
-              Jajan{" "}
-              <span className="text-kuning bg-hitam px-1 rounded-lg opacity-80">
-                Panglima
-              </span>{" "}
-              <br /> Teman asik ngemil bersama
+              Visi Misi <br />
+              <span className="text-2xl text-kuning bg-hitam p-1 rounded-lg opacity-80">
+                Jajan Panglima
+              </span>
             </h1>
 
             <div className="mt-10 lg:mt-10 lg:flex lg:items-center">
               <img
-                className="object-cover object-center w-full md:-ml-40 rounded-lg h-96"
+                className="object-cover object-center w-full h-[15rem] md:w-[30rem] xl:w-full xl:h-auto xl:-ml-40 rounded-lg h-96"
                 src="visiMisi.jpg"
-                alt="Jajan"
+                alt="visi dan misi jajan panglima"
                 data-aos="fade-right"
                 data-aos-duration="1000"
                 data-aos-easing="ease-in-out"
               />
 
-              <div className="mt-8 px-2 lg:pl-32 xl:mt-0  text-gray-800">
-                <h1
-                  className="text-4xl font-bold dark:text-putih lg:w-72"
-                  data-aos="fade-left"
-                  data-aos-duration="1200"
-                  data-aos-easing="ease-in-out"
-                >
-                  Visi Misi <br />
-                  <span className="text-2xl text-kuning bg-hitam p-1 rounded-lg opacity-80">
-                    Jajan Panglima
-                  </span>{" "}
-                </h1>
+              <div className="mt-8 md:mt-0 px-2 md:pl-5 xl:pl-32 xl:mt-0 text-gray-800 text-sm xl:text-base">
                 <h3
                   className="text-3xl font-semibold mt-6"
                   data-aos="fade-left"
@@ -110,12 +98,12 @@ const About = () => {
         </div>
       </section>
 
-      <section className="bg-putih dark:bg-gray-900 xl:-mt-36 2xl:-mt-72 -mt-10 -mb-10 z-20  overflow-x-hidden">
+      <section className="bg-putih dark:bg-gray-900 xl:-mt-36 2xl:-mt-72 -mt-96 -mb-10 z-20 overflow-x-hidden">
         <div className="relative flex">
           <div className="min-h-screen lg:w-1/3"></div>
           <div className="hidden w-3/4 min-h-screen bg-gray-100 dark:bg-gray-800 lg:block"></div>
 
-          <div className="container flex flex-col justify-center w-full min-h-screen px-6 lg:px-20 py-10 mx-auto lg:absolute lg:inset-x-0">
+          <div className="container flex flex-col justify-center w-full min-h-screen px-6 md:px-5 xl:px-16 py-10 mx-auto lg:absolute lg:inset-x-0">
             <h1
               className="text-2xl font-semibold text-gray-800 capitalize lg:text-3xl dark:text-white"
               data-aos="fade-in"
@@ -132,7 +120,7 @@ const About = () => {
 
             <div className="lg:-mt-5 lg:flex justify-between lg:items-center">
               <div className="xl:px-10 lg:mt-0 text-gray-800">
-                <ul className="text-gray-800 text-lg lg:text-4xl 2xl:text-5xl font-bold p-2">
+                <ul className="text-gray-800 text-2xl lg:text-4xl 2xl:text-5xl font-bold p-2">
                   <li
                     data-aos="fade-right"
                     data-aos-duration="1000"
@@ -171,7 +159,7 @@ const About = () => {
                 </ul>
               </div>
               <img
-                className="object-cover object-center 2xl:ml-40 w-full rounded-lg h-96"
+                className="object-cover object-center 2xl:ml-40 md:w-[30rem] rounded-lg h-96"
                 src="value.jpg"
                 alt="outlet juanda"
                 data-aos="fade-left"
@@ -182,7 +170,7 @@ const About = () => {
           </div>
         </div>
       </section>
-      
+
       <Footer />
       <Wa />
     </>
