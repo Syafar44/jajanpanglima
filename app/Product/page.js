@@ -78,7 +78,7 @@ const pageProduk = [
   {
     id: 10,
     title: "All",
-    image: "All.jpg",
+    image: "/All.jpg",
     link: "/Product/All",
   },
 ];
