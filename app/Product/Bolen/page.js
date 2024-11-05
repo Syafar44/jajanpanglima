@@ -81,6 +81,15 @@ const Bolen = () => {
 
   const [imageLoaded, setImageLoaded] = React.useState({});
 
+  const rupiah = (number) => {
+    return new Intl.NumberFormat("id-ID", {
+      style: "currency",
+      currency: "IDR",
+      minimumFractionDigits: 0,
+      maximumFractionDigits: 0,
+    }).format(number);
+  };
+
   return (
     <>
       <Navbar />
@@ -131,7 +140,7 @@ const Bolen = () => {
                       {product.nama}
                     </Typography>
                     <Typography variant="h5" className="-mt-1 font-teko">
-                    {rupiah(product.harga)}
+                      {rupiah(product.harga)}
                     </Typography>
                   </CardBody>
                 </div>
