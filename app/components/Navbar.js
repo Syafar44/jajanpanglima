@@ -47,13 +47,13 @@ const link1 = [
 const link2 = [
   {
     id: 4,
-    title: "PRODUCT",
-    link: "/Product",
+    title: "LOCATION",
+    link: "/Location",
   },
   {
     id: 5,
-    title: "LOCATION",
-    link: "/Location",
+    title: "PRODUCT",
+    link: "/Product",
   },
 ];
 
