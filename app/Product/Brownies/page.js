@@ -17,12 +17,6 @@ import Link from "next/link";
 const products = [
   {
     id: 71,
-    nama: "Brownies Mini Satuan",
-    harga: 5000,
-    gambar: "../produk/brownies/brownies mini satuan.jpg",
-  },
-  {
-    id: 72,
     nama: "Brownies Mini Paket",
     harga: 35000,
     gambar: "../produk/brownies/brwonies mini paket.jpg",
@@ -135,7 +129,7 @@ const Brownies = () => {
                       {product.nama}
                     </Typography>
                     <Typography variant="h5" className="-mt-1 font-teko">
-                    {rupiah(product.harga)}
+                      {rupiah(product.harga)}
                     </Typography>
                   </CardBody>
                 </div>
