@@ -49,6 +49,11 @@ const posterMobile = [
     image: './poster/Post Feed Promo Donat-01.jpg',
     title: 'Jajan Panglima',
   },
+  {
+    id: 3236,
+    image: './poster/Stori donat-01.jpg',
+    title: 'Jajan Panglima',
+  },
 ];
 
 const postRight = [
