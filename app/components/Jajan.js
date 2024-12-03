@@ -1,72 +1,77 @@
-"use client";
-import React, { useEffect } from "react";
-import { Carousel } from "@material-tailwind/react";
+'use client';
+import React, { useEffect } from 'react';
+import { Carousel } from '@material-tailwind/react';
 
-import AOS from "aos";
-import "aos/dist/aos.css";
+import AOS from 'aos';
+import 'aos/dist/aos.css';
 
 const posterDesktop = [
   {
     id: 1,
-    image: "./poster/promo ongkir web-01.jpg",
-    title: "Sarapan Panglima",
+    image: './poster/promo ongkir web-01.jpg',
+    title: 'Sarapan Panglima',
   },
   {
     id: 2,
-    image: "./poster/Stiker Box.jpg",
-    title: "stiker box Jajan Panglima",
+    image: './poster/Stiker Box.jpg',
+    title: 'stiker box Jajan Panglima',
   },
   {
     id: 3,
-    image: "./poster/Poster Sarapan.jpg",
-    title: "Jgratis ongkir jajan Panglima",
+    image: './poster/Poster Sarapan.jpg',
+    title: 'Jgratis ongkir jajan Panglima',
   },
 ];
 
 const posterMobile = [
   {
     id: 4576,
-    image: "./poster/Feed Roti Gembung Hangat.jpg",
-    title: "Jajan Panglima",
+    image: './poster/Feed Roti Gembung Hangat.jpg',
+    title: 'Jajan Panglima',
   },
   {
     id: 5463,
-    image: "./poster/roti tawar post-01.jpg",
-    title: "Jajan Panglima",
+    image: './poster/roti tawar post-01.jpg',
+    title: 'Jajan Panglima',
   },
   {
     id: 3245,
-    image: "./poster/web jajan.jpg",
-    title: "Jajan Panglima",
+    image: './poster/web jajan.jpg',
+    title: 'Jajan Panglima',
   },
   {
-    id: 3245,
-    image: "./poster/gratis ongkir feed ig.-01.jpg",
-    title: "Jajan Panglima",
+    id: 3249,
+    image: './poster/gratis ongkir feed ig.-01.jpg',
+    title: 'Jajan Panglima',
+  },
+  {
+    id: 3244,
+    image: './poster/Post Feed Promo Donat-01.jpg',
+    title: 'Jajan Panglima',
   },
 ];
 
 const postRight = [
   {
     id: 3245,
-    image: "postingan/5213196f-8616-4732-a6ab-b7da3b981fba.jpeg",
-    judul: "Jajan Enak, Gak Pake Ribet ",
+    image: 'postingan/5213196f-8616-4732-a6ab-b7da3b981fba.jpeg',
+    judul: 'Jajan Enak, Gak Pake Ribet ',
     deskripsi:
-      "Nggak perlu bingung lagi! Sekarang jajan di Jajan Panglima GRATIS ongkir sampai 15 November aja! Cukup belanja minimal 20 ribu, langsung nikmatin promo yang bikin dompet senyum!",
+      'Nggak perlu bingung lagi! Sekarang jajan di Jajan Panglima GRATIS ongkir sampai 15 November aja! Cukup belanja minimal 20 ribu, langsung nikmatin promo yang bikin dompet senyum!',
     deskripsiOpsional:
-      "Tunggu apa lagi? Cepet checkout sebelum promo ini keburu lewat!",
+      'Tunggu apa lagi? Cepet checkout sebelum promo ini keburu lewat!',
   },
 ];
 
 const postLeft = [
   {
     id: 3245,
-    image: "postingan/roti tawar post-01.jpg",
-    judul: "Tahukah Kamu",
+    image: 'postingan/roti tawar post-01.jpg',
+    judul: 'Tahukah Kamu',
     deskripsi:
-      "Dengan ROTI TAWAR JAJAN PANGLIMA setiap 100 gram-nya kasih kamu 304 kkal energi buat mulai hari, 18% protein buat daya tahan, dan cuma 3% lemak buat jaga kesehatan jantung. Plus, bahannya simpel dan transparan: tepung, gula, susu, ragi, dan mentega 👌",
+      'Dengan ROTI TAWAR JAJAN PANGLIMA setiap 100 gram-nya kasih kamu 304 kkal energi buat mulai hari, 18% protein buat daya tahan, dan cuma 3% lemak buat jaga kesehatan jantung. Plus, bahannya simpel dan transparan: tepung, gula, susu, ragi, dan mentega 👌',
     deskripsiOpsional:
-      "Mulai hari dengan nutrisi seimbang yang simpel dan bernutrisi sebagai 𝒑𝒊𝒍𝒊𝒉𝒂𝒏 𝒂𝒎𝒂𝒏 𝒖𝒏𝒕𝒖𝒌 𝒌𝒆𝒍𝒖𝒂𝒓𝒈𝒂 😉",
+      'Mulai hari dengan nutrisi seimbang yang simpel dan bernutrisi sebagai 𝒑𝒊𝒍𝒊𝒉𝒂𝒏 𝒂𝒎𝒂𝒏 𝒖𝒏𝒕𝒖𝒌 𝒌𝒆𝒍𝒖𝒂𝒓𝒈𝒂 😉',
   },
 ];
 
