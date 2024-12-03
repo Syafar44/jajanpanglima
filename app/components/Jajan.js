@@ -19,7 +19,12 @@ const posterDesktop = [
   {
     id: 3,
     image: './poster/Poster Sarapan.jpg',
-    title: 'Jgratis ongkir jajan Panglima',
+    title: 'gratis ongkir jajan Panglima',
+  },
+  {
+    id: 4,
+    image: './poster/Donat (Web Jajan)-01.jpg',
+    title: 'donat Jajan Panglima',
   },
 ];
 
@@ -42,11 +47,6 @@ const posterMobile = [
   {
     id: 3249,
     image: './poster/gratis ongkir feed ig.-01.jpg',
-    title: 'Jajan Panglima',
-  },
-  {
-    id: 3244,
-    image: './poster/Post Feed Promo Donat-01.jpg',
     title: 'Jajan Panglima',
   },
   {
