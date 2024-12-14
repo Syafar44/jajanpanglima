@@ -30,6 +30,11 @@ const posterDesktop = [
 
 const posterMobile = [
   {
+    id: 3286,
+    image: './poster/COMOBO LUMERR-01.jpg',
+    title: 'Jajan Panglima',
+  },
+  {
     id: 4576,
     image: './poster/Feed Roti Gembung Hangat.jpg',
     title: 'Jajan Panglima',
@@ -52,11 +57,6 @@ const posterMobile = [
   {
     id: 3236,
     image: './poster/Stori donat-01.jpg',
-    title: 'Jajan Panglima',
-  },
-  {
-    id: 3286,
-    image: './poster/COMOBO LUMERR-01.jpg',
     title: 'Jajan Panglima',
   },
 ];
@@ -94,7 +94,7 @@ const Jajan = () => {
     <main className="overflow-x-hidden lg:overflow-x-visible">
       {/* Desktop */}
       <section className="container mx-auto px-28 2xl:px-0 pt-16 -mt-6 hidden lg:block lg:h-[480px] xl:h-[550px] 2xl:h-[800px] z-10">
-        <Carousel loop={true} autoplay={true} className="rounded-xl shadow-lg">
+        <Carousel loop={true} className="rounded-xl shadow-lg">
           {posterDesktop.map((poster) => {
             return (
               <img
@@ -110,7 +110,7 @@ const Jajan = () => {
 
       {/* Mobile */}
       <section className="container px-5 mx-auto py-6 mt-2 h-[25rem] lg:hidden">
-        <Carousel loop={true} autoplay={true} className="rounded-xl shadow-lg">
+        <Carousel loop={true} className="rounded-xl shadow-lg">
           {posterMobile.map((poster) => {
             return (
               <img
