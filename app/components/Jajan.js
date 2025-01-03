@@ -31,7 +31,7 @@ const posterDesktop = [
 const posterMobile = [
   {
     id: 3286,
-    image: './poster/COMOBO LUMERR-01.jpg',
+    image: './poster/feed kopi-01.jpg',
     title: 'Jajan Panglima',
   },
   {
