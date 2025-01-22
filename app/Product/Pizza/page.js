@@ -1,6 +1,6 @@
-"use client";
-import React, { useEffect, useState } from "react";
-import Navbar from "../../components/Navbar";
+'use client';
+import React, { useEffect, useState } from 'react';
+import Navbar from '../../components/Navbar';
 import {
   Card,
   CardHeader,
@@ -9,59 +9,77 @@ import {
   Typography,
   Button,
   Chip,
-} from "@material-tailwind/react";
-import Footer from "../../components/Footer";
-import Wa from "@/app/components/Wa";
-import Link from "next/link";
+} from '@material-tailwind/react';
+import Footer from '../../components/Footer';
+import Wa from '@/app/components/Wa';
+import Link from 'next/link';
 
 const products = [
   {
+    id: 751110,
+    nama: 'Pizza Sosis & Pizza Beef',
+    harga: 70000,
+    gambar: '/poster/Pizza promo.jpg',
+  },
+  {
+    id: 751112,
+    nama: 'Pizza Ayam Kari & Pizza Meat Lovers',
+    harga: 68000,
+    gambar: '/poster/Pizza promo.jpg',
+  },
+  {
+    id: 751113,
+    nama: 'Pizza Ayam Kari & Pizza Chicken',
+    harga: 65000,
+    gambar: '/poster/Pizza promo.jpg',
+  },
+  {
     id: 11,
-    nama: "Pizza Ayam Kari",
+    nama: 'Pizza Ayam Kari',
     harga: 39000,
-    gambar: "/produk/pizza/Pizza Ayam Kari.jpg",
+    gambar: '/produk/pizza/Pizza Ayam Kari.jpg',
   },
   {
     id: 12,
-    nama: "Pizza Beff",
+    nama: 'Pizza Beff',
     harga: 43000,
-    gambar: "/produk/pizza/Pizza Beef.JPG",
+    gambar: '/produk/pizza/Pizza Beef.JPG',
   },
   {
     id: 13,
-    nama: "Pizza Chicken",
+    nama: 'Pizza Chicken',
     harga: 42000,
-    gambar: "/produk/pizza/Pizza Chicken.JPG",
+    gambar: '/produk/pizza/Pizza Chicken.JPG',
   },
   {
     id: 14,
-    nama: "Pizza Meat Lovers",
+    nama: 'Pizza Meat Lovers',
     harga: 50000,
-    gambar: "/produk/pizza/Pizaa Meat.jpg",
+    gambar: '/produk/pizza/Pizaa Meat.jpg',
   },
   {
     id: 15,
-    nama: "Pizza Slice Beff",
+    nama: 'Pizza Slice Beff',
     harga: 15000,
-    gambar: "/produk/pizza/Pizza Slice Beff,.jpg",
+    gambar: '/produk/pizza/Pizza Slice Beff,.jpg',
   },
   {
     id: 16,
-    nama: "Pizza  Slice Chicken",
+    nama: 'Pizza  Slice Chicken',
     harga: 15000,
-    gambar: "/produk/pizza/Pizza Slice Chicken.jpg",
+    gambar: '/produk/pizza/Pizza Slice Chicken.jpg',
   },
   {
     id: 17,
-    nama: "Pizza Slice Meat Lovers",
+    nama: 'Pizza Slice Meat Lovers',
     harga: 15000,
-    gambar: "/produk/pizza/Pizza Slice Meat Lovers.jpg",
+    gambar: '/produk/pizza/Pizza Slice Meat Lovers.jpg',
   },
   {
     id: 18,
-    nama: "Pizza Sosis",
+    nama: 'Pizza Sosis',
     harga: 41000,
-    gambar: "/produk/pizza/Sosis.JPG",
+    gambar: '/produk/pizza/Sosis.JPG',
   },
 ];
 
@@ -70,7 +88,7 @@ const Pizza = () => {
   const [isLoading, setIsLoading] = useState(true);
 
   useEffect(() => {
-    const savedCart = JSON.parse(localStorage.getItem("cartjajan")) || [];
+    const savedCart = JSON.parse(localStorage.getItem('cartjajan')) || [];
     setCart(savedCart);
     setIsLoading(false);
   }, []);
@@ -88,7 +106,7 @@ const Pizza = () => {
       newCart = [...cart, { ...product, quantity: 1 }];
     }
     setCart(newCart);
-    localStorage.setItem("cartjajan", JSON.stringify(newCart));
+    localStorage.setItem('cartjajan', JSON.stringify(newCart));
   };
 
   const decreaseQuantity = (productId) => {
@@ -98,7 +116,7 @@ const Pizza = () => {
       )
       .filter((item) => item.quantity > 0);
     setCart(newCart);
-    localStorage.setItem("cartjajan", JSON.stringify(newCart));
+    localStorage.setItem('cartjajan', JSON.stringify(newCart));
   };
 
   const increaseQuantity = (productId) => {
@@ -106,16 +124,16 @@ const Pizza = () => {
       item.id === productId ? { ...item, quantity: item.quantity + 1 } : item
     );
     setCart(newCart);
-    localStorage.setItem("cartjajan", JSON.stringify(newCart));
+    localStorage.setItem('cartjajan', JSON.stringify(newCart));
   };
 
   const [imageLoaded, setImageLoaded] = React.useState({});
 
   // convert IDR
   const rupiah = (number) => {
-    return new Intl.NumberFormat("id-ID", {
-      style: "currency",
-      currency: "IDR",
+    return new Intl.NumberFormat('id-ID', {
+      style: 'currency',
+      currency: 'IDR',
       minimumFractionDigits: 0,
       maximumFractionDigits: 0,
     }).format(number);
@@ -128,7 +146,7 @@ const Pizza = () => {
         <h1 className="text-2xl lg:text-3xl xl:text-4xl font-bold">
           <Link href="/Product" className="hover:text-gray-500">
             Product
-          </Link>{" "}
+          </Link>{' '}
           / Pizza
         </h1>
         <div className="grid grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 mt-6 gap-5">
@@ -156,8 +174,8 @@ const Pizza = () => {
                           }
                           className={`transition-opacity ${
                             imageLoaded[product.id]
-                              ? "opacity-100"
-                              : "opacity-0"
+                              ? 'opacity-100'
+                              : 'opacity-0'
                           }`}
                         />
                       </div>
@@ -171,7 +189,7 @@ const Pizza = () => {
                       {product.nama}
                     </Typography>
                     <Typography variant="h5" className="-mt-1 font-teko">
-                    {rupiah(product.harga)}
+                      {rupiah(product.harga)}
                     </Typography>
                   </CardBody>
                 </div>
