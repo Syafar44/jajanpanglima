@@ -16,24 +16,6 @@ import Link from 'next/link';
 
 const products = [
   {
-    id: 751110,
-    nama: 'Pizza Sosis & Pizza Beef',
-    harga: 70000,
-    gambar: '/poster/Pizza promo.jpg',
-  },
-  {
-    id: 751112,
-    nama: 'Pizza Ayam Kari & Pizza Meat Lovers',
-    harga: 68000,
-    gambar: '/poster/Pizza promo.jpg',
-  },
-  {
-    id: 751113,
-    nama: 'Pizza Ayam Kari & Pizza Chicken',
-    harga: 65000,
-    gambar: '/poster/Pizza promo.jpg',
-  },
-  {
     id: 11,
     nama: 'Pizza Ayam Kari',
     harga: 39000,
