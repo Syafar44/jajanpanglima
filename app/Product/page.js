@@ -40,12 +40,6 @@ const pageProduk = [
     link: "/Product/Bakpia",
   },
   {
-    id: 4,
-    title: "Cromboloni",
-    image: "produk/cromboloni/Cromboloni Tiramisu.jpg",
-    link: "/Product/Cromboloni",
-  },
-  {
     id: 5,
     title: "Brownies",
     image: "produk/brownies/brwonies mini paket.jpg",
