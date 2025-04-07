@@ -36,7 +36,7 @@ const products = [
   {
     id: 34,
     nama: "Bakpia Kacang",
-    harga: 2000,
+    harga: 3000,
     gambar: "../produk/bakpia/Pia Kacang.jpg",
   },
   {

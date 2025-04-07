@@ -18,7 +18,7 @@ const products = [
   {
     id: 71,
     nama: "Brownies Mini Paket",
-    harga: 35000,
+    harga: 36000,
     gambar: "../produk/brownies/brwonies mini paket.jpg",
   },
 ];

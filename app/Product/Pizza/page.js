@@ -18,19 +18,19 @@ const products = [
   {
     id: 11,
     nama: 'Pizza Ayam Kari',
-    harga: 39000,
+    harga: 40000,
     gambar: '/produk/pizza/Pizza Ayam Kari.jpg',
   },
   {
     id: 12,
     nama: 'Pizza Beff',
-    harga: 43000,
+    harga: 44000,
     gambar: '/produk/pizza/Pizza Beef.JPG',
   },
   {
     id: 13,
     nama: 'Pizza Chicken',
-    harga: 42000,
+    harga: 43000,
     gambar: '/produk/pizza/Pizza Chicken.JPG',
   },
   {

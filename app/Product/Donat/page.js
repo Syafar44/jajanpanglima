@@ -60,13 +60,13 @@ const products = [
   {
     id: 58,
     nama: "Donat Original",
-    harga: 5000,
+    harga: 6000,
     gambar: "/produk/donat/Donat Original,.jpg",
   },
   {
     id: 59,
     nama: "Donat Stawberry",
-    harga: 5000,
+    harga: 6000,
     gambar: "/produk/donat/Donat Stawberry,.jpg",
   },
   {
