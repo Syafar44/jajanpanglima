@@ -58,12 +58,6 @@ const pageProduk = [
     link: "/Product/Roti-tawar",
   },
   {
-    id: 8,
-    title: "Untuq-untuq",
-    image: "produk/untuq-untuq/Untuq Untuq Ayam Kari.jpg",
-    link: "/Product/Untuq-untuq",
-  },
-  {
     id: 9,
     title: "Donat",
     image: "produk/donat/donat paket.jpg",
@@ -99,7 +93,7 @@ const Product = () => {
           Product Kategori
         </h1>
         <div
-          className={`grid grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 2xl:grid-cols-5 mt-6 gap-2 lg:gap-5`}
+          className={`grid grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 2xl:grid-cols-4 mt-6 gap-2 lg:gap-5`}
         >
           {pageProduk.map((page) => {
             return (
